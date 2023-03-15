@@ -1,0 +1,3 @@
+[submodule "submodules/SwiftCustomControl"]
+	path = submodules/SwiftCustomControl
+	url = git@github.com:PurpleSweetPotatoes/Swift-Custom-Control.git
