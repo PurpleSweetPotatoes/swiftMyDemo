@@ -7,14 +7,15 @@
 //  
 
 import UIKit
+import UserNotifications
+import BQSwiftKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        registerNotification()
+        application.registerForRemoteNotifications()
         return true
     }
 
@@ -33,5 +34,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+// MARK: - UNUserNotificationCenterDelegate
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func registerNotification() {
+        BQLogger.log("开始注册")
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if granted {
+                print("同意")
+            } else {
+                print("拒绝")
+            }
+        }
+        UNUserNotificationCenter.current().delegate = self
+    }
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        BQLogger.log("获取到deviceToken: \(deviceToken.hexStr)")
+    }
+
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        BQLogger.error("获取到deviceToken 失败: \(error.localizedDescription)")
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+        BQLogger.log("did Receive: \(response.notification.request.content)")
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+        BQLogger.log("will present: \(notification.request.content)")
+        return [.alert, .sound, .badge]
+    }
 }
 

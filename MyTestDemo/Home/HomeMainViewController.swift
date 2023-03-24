@@ -10,13 +10,20 @@ import UIKit
 
 enum HomeListType: CaseIterable {
     case testVC
+    case notificationTrigger
     case extensionList
+    case dateRelated
+
     var dataSource: NormalInfoDataSource {
         switch self {
         case .extensionList:
             return NormalInfoModel(title: "Extension List", content: "Custom extension properties or methods")
         case .testVC:
             return NormalInfoModel(title: "Test VC", content: "use for test method")
+        case .notificationTrigger:
+            return NormalInfoModel(title: "Create Push Notification", content: "quick and easy creation notification")
+        case .dateRelated:
+            return NormalInfoModel(title: "Date Related VC", content: "some date test & method")
         }
     }
 
@@ -27,6 +34,10 @@ enum HomeListType: CaseIterable {
             targetVC = ExtensionListViewController()
         case .testVC:
             targetVC = TestViewController()
+        case .notificationTrigger:
+            targetVC = NotificationTriggerViewController()
+        case .dateRelated:
+            targetVC = DateRelatedViewController()
         }
         targetVC?.title = dataSource.title
         return targetVC ?? UIViewController()
@@ -40,7 +51,6 @@ class HomeMainViewController: UIViewController {
         super.viewDidLoad()
         title = tabBarName
         view.backgroundColor = .white
-        BQLogger.log("当前app使用宽度: \(UIApplication.width)")
         setupUI()
     }
     

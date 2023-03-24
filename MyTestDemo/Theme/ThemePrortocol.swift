@@ -13,42 +13,30 @@ protocol BQThemeFontProtocol {
     var title1: UIFont { get }
     var title2: UIFont { get }
     var title3: UIFont { get }
+    var title4: UIFont { get }
     var body: UIFont { get }
-    var caption1: UIFont { get }
-    var caption2: UIFont { get }
+    var callout: UIFont { get }
+    var content: UIFont { get }
+    var footnote: UIFont { get }
+    var caption: UIFont { get }
 }
 
 protocol BQThemeColorProtocol {
+    var backgroundDefaultColor: UIColor { get }
     var textDefaultColor: UIColor { get }
     var textSecondColor: UIColor { get }
 }
 
-
 extension BQThemeFontProtocol {
-    var title1: UIFont {
-        .dynamic(.title1, maxScaleSize: 2)
-    }
-
-    var title2: UIFont {
-        .preferredFont(forTextStyle: .title2)
-    }
-
-    var title3: UIFont {
-        .preferredFont(forTextStyle: .title3)
-
-    }
-
-    var body: UIFont {
-        UIFont.dynamic(.body, maxScaleSize: 3)
-    }
-
-    var caption1: UIFont {
-        .preferredFont(forTextStyle: .caption1)
-    }
-
-    var caption2: UIFont {
-        .preferredFont(forTextStyle: .caption2)
-    }
+    var title1: UIFont { .dynamicFont(.title1) }
+    var title2: UIFont { .dynamicFont(.title2) }
+    var title3: UIFont { .dynamicFont(.title3) }
+    var title4: UIFont { .dynamicFont(.title4) }
+    var body: UIFont { .dynamicFont(.body) }
+    var callout: UIFont { .dynamicFont(.callout) }
+    var content: UIFont { .dynamicFont(.content) }
+    var footnote: UIFont { .dynamicFont(.footnote) }
+    var caption: UIFont { .dynamicFont(.caption) }
 }
 
 extension BQThemeColorProtocol {
@@ -58,6 +46,10 @@ extension BQThemeColorProtocol {
 
     var textSecondColor: UIColor {
         return UIColor(dark: .lightGray, light: .gray)
+    }
+
+    var backgroundDefaultColor: UIColor {
+        return UIColor(dark: .black, light: .white)
     }
 }
 

@@ -45,7 +45,7 @@ private extension NormalInfoCell {
             $0.trailing.equalToSuperview().offset(-15)
         }
 
-        contentLabel.font = ThemeManager.uiFont.caption1
+        contentLabel.font = ThemeManager.uiFont.content
         contentLabel.textColor = ThemeManager.uiColor.textSecondColor
         contentLabel.numberOfLines = 0
         contentView.addSubview(contentLabel)
