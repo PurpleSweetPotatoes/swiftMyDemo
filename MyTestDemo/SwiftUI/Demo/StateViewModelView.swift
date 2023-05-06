@@ -18,6 +18,7 @@ class TestViewModel: TestViewModelCombine {
             case error = "error"
         }
         var status: Status = .creation
+
     }
 
     enum Action {

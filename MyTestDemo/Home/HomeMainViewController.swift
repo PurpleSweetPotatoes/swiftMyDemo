@@ -61,6 +61,8 @@ private extension HomeMainViewController {
         NormalInfoCell.register(to: tableView)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
+        tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "abc")
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -84,6 +86,17 @@ extension HomeMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         navigationController?.pushViewController(dataList[indexPath.row].toViewController, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "abc")
+        headerView?.textLabel?.text = "asdbasd".uppercased()
+        headerView?.textLabel?.font = ThemeManager.uiFont.body
+        return headerView
     }
 }
 

@@ -9,6 +9,7 @@
 import Combine
 import UIKit
 import UserNotifications
+import BQSwiftKit
 
 class NotificationTriggerViewController: UIViewController {
     private var storage = Set<AnyCancellable>()

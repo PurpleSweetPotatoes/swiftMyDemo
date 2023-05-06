@@ -25,6 +25,22 @@
 		F505DD0729BE115100B0F35A /* BQNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F505DD0629BE115100B0F35A /* BQNavigationViewController.swift */; };
 		F505DD0F29BEF47100B0F35A /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F505DD0E29BEF47100B0F35A /* SwiftUIView.swift */; };
 		F505DD1129BF1F0F00B0F35A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F505DD1029BF1F0E00B0F35A /* TestViewController.swift */; };
+		F520360029DA977500804BAC /* hikeData.json in Resources */ = {isa = PBXBuildFile; fileRef = F52035FF29DA977500804BAC /* hikeData.json */; };
+		F520360229DA979D00804BAC /* Hike.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520360129DA979D00804BAC /* Hike.swift */; };
+		F520360429DA988200804BAC /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520360329DA988200804BAC /* ModelData.swift */; };
+		F520360629DA9A3800804BAC /* HikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520360529DA9A3800804BAC /* HikeView.swift */; };
+		F520360829DA9AA400804BAC /* HikeGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520360729DA9AA400804BAC /* HikeGraph.swift */; };
+		F520360A29DA9D7B00804BAC /* GraphCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520360929DA9D7B00804BAC /* GraphCapsule.swift */; };
+		F520360C29DA9E6A00804BAC /* HikeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520360B29DA9E6A00804BAC /* HikeDetail.swift */; };
+		F520360F29DAC1BD00804BAC /* SkewedOffsetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520360E29DAC1BD00804BAC /* SkewedOffsetView.swift */; };
+		F520361129DAC9EC00804BAC /* SwiftUILabDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520361029DAC9EC00804BAC /* SwiftUILabDemo.swift */; };
+		F520361329DAD10B00804BAC /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520361229DAD10B00804BAC /* CustomPickerView.swift */; };
+		F520361E29DDB30000804BAC /* TimelLineViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520361929DDB30000804BAC /* TimelLineViewTest.swift */; };
+		F520361F29DDB30000804BAC /* CanvasViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520361A29DDB30000804BAC /* CanvasViewTest.swift */; };
+		F520362029DDB30000804BAC /* MatrixDigitalRain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520361B29DDB30000804BAC /* MatrixDigitalRain.swift */; };
+		F520362129DDB30000804BAC /* SidesAnimationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520361C29DDB30000804BAC /* SidesAnimationsTest.swift */; };
+		F520362229DDB30000804BAC /* MatchedGeometryEffectViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520361D29DDB30000804BAC /* MatchedGeometryEffectViewTest.swift */; };
+		F537420029E3E01200064386 /* ListDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53741FF29E3E01200064386 /* ListDemo.swift */; };
 		F563A14029BB6FEF00E7358F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563A13F29BB6FEF00E7358F /* AppDelegate.swift */; };
 		F563A14229BB6FEF00E7358F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563A14129BB6FEF00E7358F /* SceneDelegate.swift */; };
 		F563A14729BB6FEF00E7358F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F563A14529BB6FEF00E7358F /* Main.storyboard */; };
@@ -32,6 +48,7 @@
 		F563A14C29BB6FF100E7358F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F563A14A29BB6FF100E7358F /* LaunchScreen.storyboard */; };
 		F5A8959E29C4315800377292 /* XibTestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A8959C29C4315800377292 /* XibTestTableViewCell.swift */; };
 		F5D5AC1329CC471200BA9356 /* DateRelatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5AC1229CC471200BA9356 /* DateRelatedViewController.swift */; };
+		F5E290F329F922DC0006BFF7 /* MyTestDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E290F229F922DC0006BFF7 /* MyTestDemoTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +58,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = F5030EB029CAA327003FF3B8;
 			remoteInfo = NotificationService;
+		};
+		F5E290F429F922DC0006BFF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F563A13429BB6FEF00E7358F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F563A13B29BB6FEF00E7358F;
+			remoteInfo = MyTestDemo;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -81,6 +105,22 @@
 		F505DD0629BE115100B0F35A /* BQNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BQNavigationViewController.swift; sourceTree = "<group>"; };
 		F505DD0E29BEF47100B0F35A /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		F505DD1029BF1F0E00B0F35A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		F52035FF29DA977500804BAC /* hikeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hikeData.json; sourceTree = "<group>"; };
+		F520360129DA979D00804BAC /* Hike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Hike.swift; path = MyTestDemo/Home/Hike.swift; sourceTree = SOURCE_ROOT; };
+		F520360329DA988200804BAC /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		F520360529DA9A3800804BAC /* HikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeView.swift; sourceTree = "<group>"; };
+		F520360729DA9AA400804BAC /* HikeGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeGraph.swift; sourceTree = "<group>"; };
+		F520360929DA9D7B00804BAC /* GraphCapsule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphCapsule.swift; sourceTree = "<group>"; };
+		F520360B29DA9E6A00804BAC /* HikeDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HikeDetail.swift; sourceTree = "<group>"; };
+		F520360E29DAC1BD00804BAC /* SkewedOffsetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkewedOffsetView.swift; sourceTree = "<group>"; };
+		F520361029DAC9EC00804BAC /* SwiftUILabDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUILabDemo.swift; sourceTree = "<group>"; };
+		F520361229DAD10B00804BAC /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
+		F520361929DDB30000804BAC /* TimelLineViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelLineViewTest.swift; sourceTree = "<group>"; };
+		F520361A29DDB30000804BAC /* CanvasViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasViewTest.swift; sourceTree = "<group>"; };
+		F520361B29DDB30000804BAC /* MatrixDigitalRain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixDigitalRain.swift; sourceTree = "<group>"; };
+		F520361C29DDB30000804BAC /* SidesAnimationsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidesAnimationsTest.swift; sourceTree = "<group>"; };
+		F520361D29DDB30000804BAC /* MatchedGeometryEffectViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchedGeometryEffectViewTest.swift; sourceTree = "<group>"; };
+		F53741FF29E3E01200064386 /* ListDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDemo.swift; sourceTree = "<group>"; };
 		F563A13C29BB6FEF00E7358F /* MyTestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F563A13F29BB6FEF00E7358F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F563A14129BB6FEF00E7358F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +130,8 @@
 		F563A14D29BB6FF100E7358F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5A8959C29C4315800377292 /* XibTestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibTestTableViewCell.swift; sourceTree = "<group>"; };
 		F5D5AC1229CC471200BA9356 /* DateRelatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRelatedViewController.swift; sourceTree = "<group>"; };
+		F5E290F029F922DC0006BFF7 /* MyTestDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyTestDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5E290F229F922DC0006BFF7 /* MyTestDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTestDemoTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +147,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4D148DDEDDB3827A06076A3 /* Pods_MyTestDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5E290ED29F922DC0006BFF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,10 +283,50 @@
 		F505DD0D29BEF46100B0F35A /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				F520361829DDB30000804BAC /* animationTest */,
+				F520361229DAD10B00804BAC /* CustomPickerView.swift */,
+				F520360D29DAC14300804BAC /* SwiftuiLabAnimationDemo */,
+				F52035FE29DA96F900804BAC /* appAnimationTutorials */,
 				F505DD0E29BEF47100B0F35A /* SwiftUIView.swift */,
 				F5030EA329C4B5B2003FF3B8 /* StateViewModelView.swift */,
+				F53741FF29E3E01200064386 /* ListDemo.swift */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		F52035FE29DA96F900804BAC /* appAnimationTutorials */ = {
+			isa = PBXGroup;
+			children = (
+				F520360929DA9D7B00804BAC /* GraphCapsule.swift */,
+				F52035FF29DA977500804BAC /* hikeData.json */,
+				F520360129DA979D00804BAC /* Hike.swift */,
+				F520360329DA988200804BAC /* ModelData.swift */,
+				F520360529DA9A3800804BAC /* HikeView.swift */,
+				F520360B29DA9E6A00804BAC /* HikeDetail.swift */,
+				F520360729DA9AA400804BAC /* HikeGraph.swift */,
+			);
+			path = appAnimationTutorials;
+			sourceTree = "<group>";
+		};
+		F520360D29DAC14300804BAC /* SwiftuiLabAnimationDemo */ = {
+			isa = PBXGroup;
+			children = (
+				F520360E29DAC1BD00804BAC /* SkewedOffsetView.swift */,
+				F520361029DAC9EC00804BAC /* SwiftUILabDemo.swift */,
+			);
+			path = SwiftuiLabAnimationDemo;
+			sourceTree = "<group>";
+		};
+		F520361829DDB30000804BAC /* animationTest */ = {
+			isa = PBXGroup;
+			children = (
+				F520361929DDB30000804BAC /* TimelLineViewTest.swift */,
+				F520361A29DDB30000804BAC /* CanvasViewTest.swift */,
+				F520361B29DDB30000804BAC /* MatrixDigitalRain.swift */,
+				F520361C29DDB30000804BAC /* SidesAnimationsTest.swift */,
+				F520361D29DDB30000804BAC /* MatchedGeometryEffectViewTest.swift */,
+			);
+			path = animationTest;
 			sourceTree = "<group>";
 		};
 		F563A13329BB6FEF00E7358F = {
@@ -245,6 +334,7 @@
 			children = (
 				F563A13E29BB6FEF00E7358F /* MyTestDemo */,
 				F5030EB229CAA327003FF3B8 /* NotificationService */,
+				F5E290F129F922DC0006BFF7 /* MyTestDemoTests */,
 				F563A13D29BB6FEF00E7358F /* Products */,
 				DFA8208B211D3457914C5EEC /* Pods */,
 				918AC566B89D5567BF1CAB5E /* Frameworks */,
@@ -256,6 +346,7 @@
 			children = (
 				F563A13C29BB6FEF00E7358F /* MyTestDemo.app */,
 				F5030EB129CAA327003FF3B8 /* NotificationService.appex */,
+				F5E290F029F922DC0006BFF7 /* MyTestDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -274,6 +365,14 @@
 				F505DCE929BDB44600B0F35A /* App */,
 			);
 			path = MyTestDemo;
+			sourceTree = "<group>";
+		};
+		F5E290F129F922DC0006BFF7 /* MyTestDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				F5E290F229F922DC0006BFF7 /* MyTestDemoTests.swift */,
+			);
+			path = MyTestDemoTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +416,24 @@
 			productReference = F563A13C29BB6FEF00E7358F /* MyTestDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F5E290EF29F922DC0006BFF7 /* MyTestDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5E290F829F922DC0006BFF7 /* Build configuration list for PBXNativeTarget "MyTestDemoTests" */;
+			buildPhases = (
+				F5E290EC29F922DC0006BFF7 /* Sources */,
+				F5E290ED29F922DC0006BFF7 /* Frameworks */,
+				F5E290EE29F922DC0006BFF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5E290F529F922DC0006BFF7 /* PBXTargetDependency */,
+			);
+			name = MyTestDemoTests;
+			productName = MyTestDemoTests;
+			productReference = F5E290F029F922DC0006BFF7 /* MyTestDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -332,6 +449,10 @@
 					};
 					F563A13B29BB6FEF00E7358F = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					F5E290EF29F922DC0006BFF7 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = F563A13B29BB6FEF00E7358F;
 					};
 				};
 			};
@@ -350,6 +471,7 @@
 			targets = (
 				F563A13B29BB6FEF00E7358F /* MyTestDemo */,
 				F5030EB029CAA327003FF3B8 /* NotificationService */,
+				F5E290EF29F922DC0006BFF7 /* MyTestDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -366,9 +488,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F520360029DA977500804BAC /* hikeData.json in Resources */,
 				F563A14C29BB6FF100E7358F /* LaunchScreen.storyboard in Resources */,
 				F563A14929BB6FF100E7358F /* Assets.xcassets in Resources */,
 				F563A14729BB6FEF00E7358F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5E290EE29F922DC0006BFF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,17 +567,40 @@
 				F505DD0729BE115100B0F35A /* BQNavigationViewController.swift in Sources */,
 				F505DCF129BDB87C00B0F35A /* HomeMainViewController.swift in Sources */,
 				F5030EA229C4AE19003FF3B8 /* CombineViewModelViewController.swift in Sources */,
+				F520360829DA9AA400804BAC /* HikeGraph.swift in Sources */,
+				F520360C29DA9E6A00804BAC /* HikeDetail.swift in Sources */,
 				F5030EBE29CAC5B3003FF3B8 /* NotificationTriggerViewController.swift in Sources */,
+				F520361129DAC9EC00804BAC /* SwiftUILabDemo.swift in Sources */,
+				F520361E29DDB30000804BAC /* TimelLineViewTest.swift in Sources */,
 				F505DD1129BF1F0F00B0F35A /* TestViewController.swift in Sources */,
+				F520360229DA979D00804BAC /* Hike.swift in Sources */,
 				F505DCF729BDD30B00B0F35A /* ExtensionListViewController.swift in Sources */,
 				F505DCFC29BDD40C00B0F35A /* NormalInfoCell.swift in Sources */,
+				F520360629DA9A3800804BAC /* HikeView.swift in Sources */,
+				F520361F29DDB30000804BAC /* CanvasViewTest.swift in Sources */,
+				F520361329DAD10B00804BAC /* CustomPickerView.swift in Sources */,
+				F520360F29DAC1BD00804BAC /* SkewedOffsetView.swift in Sources */,
 				F563A14029BB6FEF00E7358F /* AppDelegate.swift in Sources */,
+				F520362229DDB30000804BAC /* MatchedGeometryEffectViewTest.swift in Sources */,
 				F563A14229BB6FEF00E7358F /* SceneDelegate.swift in Sources */,
 				F5030EA429C4B5B2003FF3B8 /* StateViewModelView.swift in Sources */,
+				F520362029DDB30000804BAC /* MatrixDigitalRain.swift in Sources */,
 				F505DCEC29BDB56500B0F35A /* RootViewController.swift in Sources */,
 				F5D5AC1329CC471200BA9356 /* DateRelatedViewController.swift in Sources */,
+				F537420029E3E01200064386 /* ListDemo.swift in Sources */,
+				F520360A29DA9D7B00804BAC /* GraphCapsule.swift in Sources */,
 				F505DCFE29BDD4E900B0F35A /* Const.swift in Sources */,
 				F505DD0529BDDF3A00B0F35A /* ThemeManager.swift in Sources */,
+				F520360429DA988200804BAC /* ModelData.swift in Sources */,
+				F520362129DDB30000804BAC /* SidesAnimationsTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5E290EC29F922DC0006BFF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5E290F329F922DC0006BFF7 /* MyTestDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +611,11 @@
 			isa = PBXTargetDependency;
 			target = F5030EB029CAA327003FF3B8 /* NotificationService */;
 			targetProxy = F5030EB629CAA327003FF3B8 /* PBXContainerItemProxy */;
+		};
+		F5E290F529F922DC0006BFF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F563A13B29BB6FEF00E7358F /* MyTestDemo */;
+			targetProxy = F5E290F429F922DC0006BFF7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -491,6 +649,7 @@
 				INFOPLIST_FILE = NotificationService/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NotificationService;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -516,6 +675,7 @@
 				INFOPLIST_FILE = NotificationService/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NotificationService;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -663,7 +823,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -695,7 +855,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -706,6 +866,44 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F5E290F629F922DC0006BFF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8JNF7BWSSG;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.garmin.baipayne.MyTestDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyTestDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyTestDemo";
+			};
+			name = Debug;
+		};
+		F5E290F729F922DC0006BFF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8JNF7BWSSG;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.garmin.baipayne.MyTestDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyTestDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyTestDemo";
 			};
 			name = Release;
 		};
@@ -735,6 +933,15 @@
 			buildConfigurations = (
 				F563A15129BB6FF100E7358F /* Debug */,
 				F563A15229BB6FF100E7358F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5E290F829F922DC0006BFF7 /* Build configuration list for PBXNativeTarget "MyTestDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5E290F629F922DC0006BFF7 /* Debug */,
+				F5E290F729F922DC0006BFF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

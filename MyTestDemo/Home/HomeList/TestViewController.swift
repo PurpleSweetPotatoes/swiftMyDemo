@@ -15,9 +15,25 @@ class TestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = ThemeManager.uiColor.backgroundDefaultColor
-        testCombineButton()
+        testDate()
     }
 
+}
+
+private extension TestViewController {
+    func testDate() {
+        if let startDate = Date().startDayOfWeek,
+           let nextSaturdayDate = Calendar.current.date(byAdding: .day, value: 6, to: startDate) {
+            print("本周开始:\(startDate)")
+            print("本周六:\(nextSaturdayDate)")
+            let inSameMonth = Calendar.current.isDate(startDate, equalTo: nextSaturdayDate, toGranularity: .month)
+            print("是否同一个月: \(inSameMonth)")
+        }
+
+        for day in BQWeekDay.allCases {
+            print("---\(Date().currentWeek(dayOfWeek: day))")
+        }
+    }
 }
 
 private extension TestViewController {

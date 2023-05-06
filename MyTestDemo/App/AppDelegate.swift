@@ -67,4 +67,3 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         return [.alert, .sound, .badge]
     }
 }
-
