@@ -809,7 +809,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 72BD804319CA2E6010826A11 /* Pods-MyTestDemo.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyTestDemo/MyTestDemo.entitlements;
@@ -841,7 +841,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B3BE758C90D4FFBE023E519 /* Pods-MyTestDemo.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyTestDemo/MyTestDemo.entitlements;

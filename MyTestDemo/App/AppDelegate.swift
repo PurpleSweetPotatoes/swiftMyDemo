@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         registerNotification()
         application.registerForRemoteNotifications()
+        testMethod()
         return true
     }
 
@@ -65,5 +66,26 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
         BQLogger.log("will present: \(notification.request.content)")
         return [.alert, .sound, .badge]
+    }
+}
+
+struct ABC {
+    var aa: String
+}
+
+class BCD {}
+
+extension AppDelegate {
+    func testMethod() {
+        let s = ABC(aa: "s")
+        let c = BCD()
+        IOCFactory.register(instance: s)
+        IOCFactory.register(instance: c)
+        print("\(s) - \(c)")
+        print("==")
+        let s1: ABC = IOCFactory.load()
+        let c1: BCD = IOCFactory.load()
+        print("\(s1) - \(c1)")
+        print("==")
     }
 }
