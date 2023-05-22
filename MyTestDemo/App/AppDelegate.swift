@@ -14,6 +14,7 @@ import BQSwiftKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        TapFeedbackManager.share.feedbackEnable = true
         registerNotification()
         application.registerForRemoteNotifications()
         return true
@@ -65,5 +66,86 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
         BQLogger.log("will present: \(notification.request.content)")
         return [.alert, .sound, .badge]
+    }
+}
+
+struct TapFeedbackManager {
+    static var share = TapFeedbackManager()
+
+    var feedbackEnable: Bool = false {
+        didSet {
+            if feedbackEnable {
+                UIApplication.exchangeSendEventMethod()
+            }
+        }
+    }
+
+    private lazy var feedbackView = Self.defaultFeedbackView()
+
+    fileprivate static func receiveEvent(event: UIEvent, in window: UIWindow) {
+        guard TapFeedbackManager.share.feedbackEnable else { return }
+        let feedbackView = TapFeedbackManager.share.feedbackView
+        if let touch = event.allTouches?.first,
+           let currentWindow = UIApplication.shared.connectedScenes.compactMap({ ($0 as? UIWindowScene)?.keyWindow }).last {
+            let point = touch.location(in: currentWindow)
+            switch touch.phase {
+            case .began,
+                    .moved,
+                    .stationary:
+                if feedbackView != currentWindow {
+                    feedbackView.removeFromSuperview()
+                    currentWindow.addSubview(feedbackView)
+                }
+                feedbackView.center = point
+            case .cancelled,
+                    .ended:
+                UIView.animate(withDuration: 0.15) {
+                    feedbackView.alpha = 0
+                } completion: { _ in
+                    feedbackView.removeFromSuperview()
+                    feedbackView.alpha = 1
+                }
+            default:
+                break
+            }
+        }
+    }
+
+    private static func defaultFeedbackView() -> UIView {
+        let tapFeedbackView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 40, height: 40)))
+        tapFeedbackView.backgroundColor = UIColor(white: 0.7, alpha: 0.4)
+        tapFeedbackView.layer.cornerRadius = 20
+        tapFeedbackView.layer.borderColor = UIColor(red: 0.7, green: 0.7, blue: 0.9, alpha: 0.5).cgColor
+        tapFeedbackView.layer.borderWidth = 2
+        tapFeedbackView.isUserInteractionEnabled = false
+        tapFeedbackView.clipsToBounds = true
+        return tapFeedbackView
+    }
+}
+
+fileprivate extension UIApplication {
+    static func exchangeSendEventMethod() {
+        DispatchQueue.once(token: "exchangeSendEventMethod") {
+            let targetClass: AnyClass = Self.classForCoder()
+            let originalSelector = #selector(sendEvent(_:))
+            let swizzledSelector = #selector(exchangeSendEvent(_:))
+            guard let originalMethod = class_getInstanceMethod(targetClass, originalSelector),
+                  let swizzledMethod = class_getInstanceMethod(targetClass, swizzledSelector) else {
+                return
+            }
+            let didAddMethod: Bool = class_addMethod(targetClass, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
+            if didAddMethod {
+                class_replaceMethod(targetClass, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
+            } else {
+                method_exchangeImplementations(originalMethod, swizzledMethod)
+            }
+        }
+    }
+
+    @objc func exchangeSendEvent(_ event: UIEvent) {
+        if let currentWindow = UIApplication.shared.connectedScenes.compactMap({ ($0 as? UIWindowScene)?.keyWindow }).last {
+            TapFeedbackManager.receiveEvent(event: event, in: currentWindow)
+        }
+        exchangeSendEvent(event)
     }
 }

@@ -48,6 +48,8 @@
 		F563A14C29BB6FF100E7358F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F563A14A29BB6FF100E7358F /* LaunchScreen.storyboard */; };
 		F5A8959E29C4315800377292 /* XibTestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A8959C29C4315800377292 /* XibTestTableViewCell.swift */; };
 		F5D5AC1329CC471200BA9356 /* DateRelatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5AC1229CC471200BA9356 /* DateRelatedViewController.swift */; };
+		F5D98DA72A0A4F200049A684 /* TextXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D98DA62A0A4F200049A684 /* TextXibView.xib */; };
+		F5D98DB22A15ED4F0049A684 /* MBFingerTipWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D98DB12A15ED4F0049A684 /* MBFingerTipWindow.m */; };
 		F5E290F329F922DC0006BFF7 /* MyTestDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E290F229F922DC0006BFF7 /* MyTestDemoTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +132,16 @@
 		F563A14D29BB6FF100E7358F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5A8959C29C4315800377292 /* XibTestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibTestTableViewCell.swift; sourceTree = "<group>"; };
 		F5D5AC1229CC471200BA9356 /* DateRelatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRelatedViewController.swift; sourceTree = "<group>"; };
+		F5D98DA62A0A4F200049A684 /* TextXibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextXibView.xib; sourceTree = "<group>"; };
+		F5D98DA82A15E7BE0049A684 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		F5D98DA92A15E7BE0049A684 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F5D98DAA2A15E7DA0049A684 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/Main.strings; sourceTree = "<group>"; };
+		F5D98DAB2A15E7DA0049A684 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F5D98DAC2A15E86C0049A684 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		F5D98DAD2A15E86C0049A684 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		F5D98DAF2A15ED4E0049A684 /* MyTestDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyTestDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		F5D98DB02A15ED4F0049A684 /* MBFingerTipWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBFingerTipWindow.h; sourceTree = "<group>"; };
+		F5D98DB12A15ED4F0049A684 /* MBFingerTipWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBFingerTipWindow.m; sourceTree = "<group>"; };
 		F5E290F029F922DC0006BFF7 /* MyTestDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyTestDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E290F229F922DC0006BFF7 /* MyTestDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTestDemoTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -354,6 +366,8 @@
 		F563A13E29BB6FEF00E7358F /* MyTestDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F5D98DAE2A15ED220049A684 /* ObjectC */,
+				F5D98DA32A0A4DB40049A684 /* Xib */,
 				F5030EBF29CAF951003FF3B8 /* MyTestDemo.entitlements */,
 				F5030EA829C809DC003FF3B8 /* TempFiles */,
 				F505DD0C29BEF45700B0F35A /* SwiftUI */,
@@ -365,6 +379,24 @@
 				F505DCE929BDB44600B0F35A /* App */,
 			);
 			path = MyTestDemo;
+			sourceTree = "<group>";
+		};
+		F5D98DA32A0A4DB40049A684 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				F5D98DA62A0A4F200049A684 /* TextXibView.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
+		F5D98DAE2A15ED220049A684 /* ObjectC */ = {
+			isa = PBXGroup;
+			children = (
+				F5D98DB02A15ED4F0049A684 /* MBFingerTipWindow.h */,
+				F5D98DB12A15ED4F0049A684 /* MBFingerTipWindow.m */,
+				F5D98DAF2A15ED4E0049A684 /* MyTestDemo-Bridging-Header.h */,
+			);
+			path = ObjectC;
 			sourceTree = "<group>";
 		};
 		F5E290F129F922DC0006BFF7 /* MyTestDemoTests */ = {
@@ -449,6 +481,7 @@
 					};
 					F563A13B29BB6FEF00E7358F = {
 						CreatedOnToolsVersion = 14.1;
+						LastSwiftMigration = 1430;
 					};
 					F5E290EF29F922DC0006BFF7 = {
 						CreatedOnToolsVersion = 14.1;
@@ -463,6 +496,9 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
+				bg,
+				"zh-Hans",
 			);
 			mainGroup = F563A13329BB6FEF00E7358F;
 			productRefGroup = F563A13D29BB6FEF00E7358F /* Products */;
@@ -491,6 +527,7 @@
 				F520360029DA977500804BAC /* hikeData.json in Resources */,
 				F563A14C29BB6FF100E7358F /* LaunchScreen.storyboard in Resources */,
 				F563A14929BB6FF100E7358F /* Assets.xcassets in Resources */,
+				F5D98DA72A0A4F200049A684 /* TextXibView.xib in Resources */,
 				F563A14729BB6FEF00E7358F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,6 +615,7 @@
 				F505DCFC29BDD40C00B0F35A /* NormalInfoCell.swift in Sources */,
 				F520360629DA9A3800804BAC /* HikeView.swift in Sources */,
 				F520361F29DDB30000804BAC /* CanvasViewTest.swift in Sources */,
+				F5D98DB22A15ED4F0049A684 /* MBFingerTipWindow.m in Sources */,
 				F520361329DAD10B00804BAC /* CustomPickerView.swift in Sources */,
 				F520360F29DAC1BD00804BAC /* SkewedOffsetView.swift in Sources */,
 				F563A14029BB6FEF00E7358F /* AppDelegate.swift in Sources */,
@@ -624,6 +662,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				F563A14629BB6FEF00E7358F /* Base */,
+				F5D98DA82A15E7BE0049A684 /* es */,
+				F5D98DAA2A15E7DA0049A684 /* bg */,
+				F5D98DAC2A15E86C0049A684 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -632,6 +673,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				F563A14B29BB6FF100E7358F /* Base */,
+				F5D98DA92A15E7BE0049A684 /* es */,
+				F5D98DAB2A15E7DA0049A684 /* bg */,
+				F5D98DAD2A15E86C0049A684 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -695,6 +739,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -755,6 +800,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -812,6 +858,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MyTestDemo/MyTestDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -832,6 +879,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.garmin.baipayne.MyTestDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MyTestDemo/ObjectC/MyTestDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -844,6 +893,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MyTestDemo/MyTestDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -864,6 +914,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.garmin.baipayne.MyTestDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MyTestDemo/ObjectC/MyTestDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -881,7 +932,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.garmin.baipayne.MyTestDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyTestDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyTestDemo";
@@ -900,7 +951,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.garmin.baipayne.MyTestDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyTestDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyTestDemo";

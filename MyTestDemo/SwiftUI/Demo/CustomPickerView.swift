@@ -12,20 +12,7 @@ struct CustomPickerView: View {
     var dataList = [0,1,2,3,4,5,6,7,8]
     var center: Int = 4
     var body: some View {
-        GeometryReader { proxy in
-            OffsetScrollView { point in
-
-            } content: {
-                ForEach(dataList, id: \.self) { index in
-                    Text("\(index)")
-                        .frame(width: proxy.size.width, height: 30)
-                        .rotation3DEffect(.degrees(getDegrees(by: index)), axis: (x: 1, y: 0, z: 0))
-                }
-            }
-            .frame(height: 300)
-            .background(Color.gray)
-            .clipped()
-        }
+        Text("aaa")
     }
 
     func getDegrees(by index: Int) -> Double {
