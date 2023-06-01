@@ -69,23 +69,45 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
 }
 
-struct ABC {
-    var aa: String
-}
-
-class BCD {}
-
 extension AppDelegate {
     func testMethod() {
-        let s = ABC(aa: "s")
-        let c = BCD()
-        IOCFactory.register(instance: s)
-        IOCFactory.register(instance: c)
-        print("\(s) - \(c)")
-        print("==")
-        let s1: ABC = IOCFactory.load()
-        let c1: BCD = IOCFactory.load()
-        print("\(s1) - \(c1)")
-        print("==")
+        let dateUntil = CalendarDateUntil()
+        let currentList = dateUntil.currentMonthList()
+        print(currentList)
+    }
+}
+
+struct CalendarDate {
+    // The value is like 202201
+    let shortYearMonth: Int
+    let date: Date
+    let isCurrentMonth: Bool
+}
+
+struct CalendarDateUntil {
+    private let calendar = Calendar.current
+
+    func currentMonthList() -> [CalendarDate] {
+        let currentDate = Date()
+        guard let fromDate = currentDate.startDayOfMonth?.currentWeek(dayOfWeek: .sunday),
+              let endDate = currentDate.endDayOfMonth?.currentWeek(dayOfWeek: .saturday) else {
+            return []
+        }
+
+        let components = currentDate.components
+        let shortYearMonth = (components.year ?? 0) * 100 + (components.month ?? 0)
+        var outList: [CalendarDate] = [CalendarDate(shortYearMonth: shortYearMonth, date: fromDate, isCurrentMonth: fromDate.components.month == currentDate.components.month)]
+        calendar.enumerateDates(startingAfter: fromDate, matching: DateComponents(hour: 0, minute: 0, second: 0), matchingPolicy: .nextTime) { date, exactMatch, stop in
+            guard let date = date else {
+                stop = true
+                return
+            }
+            if date > endDate {
+                stop = true
+            } else {
+                outList.append(CalendarDate(shortYearMonth: shortYearMonth, date: date, isCurrentMonth: date.components.month == currentDate.components.month))
+            }
+        }
+        return outList
     }
 }
