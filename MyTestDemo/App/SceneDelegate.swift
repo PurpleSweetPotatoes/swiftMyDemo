@@ -11,22 +11,20 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    private var feedbackWindow: TapFeedbackWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-
-//        let newWindow = MBFingerTipWindow(windowScene: windowScene)
-//        newWindow.alwaysShowTouches = true
-//        newWindow.fadeDuration = 2
-//        newWindow.fillColor = UIColor.orange
-//        newWindow.strokeColor = UIColor.black
-//        newWindow.rootViewController = RootTabBarViewController()
-//        newWindow.makeKeyAndVisible()
-//        window = newWindow
+//        guard let windowScenes = UIApplication.shared.connectedScenes as? Set<UIWindowScene>,
+//        let currentScene = windowScenes.first(where: { $0.activationState == .foregroundActive || $0.activationState == .foregroundInactive }) else {
+//            return
+//        }
+//        feedbackWindow = TapFeedbackWindow(windowScene: windowScene)
+//        feedbackWindow?.windowLevel = UIWindow.Level.alert + 1
+//        feedbackWindow?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

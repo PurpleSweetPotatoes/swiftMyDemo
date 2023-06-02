@@ -12,11 +12,13 @@ import BQSwiftKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        TapFeedbackManager.share.feedbackEnable = true
+//        TapFeedbackManager.share.feedbackEnable = true
         registerNotification()
         application.registerForRemoteNotifications()
+        testMethod()
         return true
     }
 
@@ -147,5 +149,28 @@ fileprivate extension UIApplication {
             TapFeedbackManager.receiveEvent(event: event, in: currentWindow)
         }
         exchangeSendEvent(event)
+    }
+}
+
+extension AppDelegate {
+    func testMethod() {
+        let jsonDic: [String: Any] = [
+            "request-id": "1875932",
+            "requestee-name": "71d58c4f-87a7-4ba4-9621-154feba569bd",
+            "profileImage-url": "https://s3.amazonaws.com/armin-connect-test/profile_images/4501d838-56db-44e3-b26d-48b70786d746-prfr.png",
+            "aps": [
+                "badge": 0,
+                "alert": [
+                    "loc-key": "pn_connection_request_message_format",
+                    "title-loc-key": "pn_connection_request_title",
+                    "loc-args": [
+                        "Cheng"
+                    ],
+                    "mutable-content": 1
+                ] as [String : Any]
+            ] as [String : Any],
+            "notification-key": "pushnotification_connection_request"
+        ]
+        APNSInfoHelper.add(jsonDic)
     }
 }
