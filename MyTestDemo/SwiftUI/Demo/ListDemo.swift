@@ -62,6 +62,10 @@ struct ListDemo: View {
                     }
                 }
                 Text("abc")
+                    .foregroundColor(Color.red)
+                    .font(.body)
+                + Text(" is ")
+                    .foregroundColor(Color.green)
             }
             .listStyle(.plain)
 

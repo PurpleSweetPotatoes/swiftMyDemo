@@ -47,11 +47,13 @@ enum HomeListType: CaseIterable {
 class HomeMainViewController: UIViewController {
     private let tableView = UITableView(frame: .zero, style: .plain)
     private var dataList = HomeListType.allCases
+    private var window: UIWindow?
     override func viewDidLoad() {
         super.viewDidLoad()
         title = tabBarName
         view.backgroundColor = .white
         setupUI()
+        testMethod()
     }
     
 }
@@ -85,7 +87,13 @@ extension HomeMainViewController: UITableViewDataSource {
 extension HomeMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(dataList[indexPath.row].toViewController, animated: true)
+//        navigationController?.pushViewController(dataList[indexPath.row].toViewController, animated: true)
+        let alertVC = UIAlertController(title: "aaa", message: "bb", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "back", style: .cancel))
+        print("-=-=-=: \(UIApplication.shared.connectedScenes)")
+        navigationController?.present(alertVC, animated: true, completion: {
+            print("-=-=-=: \(UIApplication.shared.connectedScenes)")
+        })
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -106,5 +114,82 @@ extension HomeMainViewController: TabBarInfoProtocol {
     }
     var tabBarImage: UIImage? {
         return UIImage(systemName: "house")
+    }
+
+    func testMethod() {
+        
+    }
+}
+
+final class TapFeedbackWindow: UIWindow {
+    private var event: UIEvent?
+    private var displayLink: CADisplayLink?
+    private let tapView = UIView()
+
+    override init(windowScene: UIWindowScene) {
+        super.init(windowScene: windowScene)
+        setupUI()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        clear()
+        self.event = event
+        resetDisplayLink()
+        return nil
+    }
+
+    private func resetDisplayLink() {
+        displayLink = CADisplayLink(target: self, selector: #selector(eventProcessHandle))
+        displayLink?.add(to: RunLoop.current, forMode: .common)
+    }
+
+    private func clearDisplayLink() {
+        displayLink?.invalidate()
+        displayLink = nil
+    }
+
+    private func clear() {
+        event = nil
+        clearDisplayLink()
+        UIView.animate(withDuration: 0.15) {
+            self.tapView.alpha = 0
+        }
+    }
+
+    @objc private func eventProcessHandle() {
+        guard let allTouches = self.event?.allTouches,
+              !allTouches.isEmpty else {
+            clear()
+            return
+        }
+        if let touch = allTouches.first,
+           let currentWindow = UIApplication.shared.connectedScenes.compactMap({ ($0 as? UIWindowScene)?.keyWindow }).last {
+            let point = touch.location(in: currentWindow)
+            switch touch.phase {
+            case .began, .moved, .stationary:
+                tapView.alpha = 1
+                tapView.center = point
+            default:
+                UIView.animate(withDuration: 0.15) {
+                    self.tapView.alpha = 0
+                }
+            }
+        }
+    }
+
+    private func setupUI() {
+        tapView.frame = CGRect(origin: .zero, size: CGSize(width: 40, height: 40))
+        tapView.backgroundColor = UIColor(white: 0.7, alpha: 0.4)
+        tapView.layer.cornerRadius = 20
+        tapView.layer.borderColor = UIColor(red: 0.7, green: 0.7, blue: 0.9, alpha: 0.5).cgColor
+        tapView.layer.borderWidth = 2
+        tapView.isUserInteractionEnabled = false
+        tapView.clipsToBounds = true
+        tapView.alpha = 0
+        addSubview(tapView)
     }
 }
