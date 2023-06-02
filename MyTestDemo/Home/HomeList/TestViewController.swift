@@ -69,7 +69,8 @@ private extension TestViewController {
             let first = arc4random() % 2 == 0
             let second = arc4random() % 2 == 0
             leftLabel.text = first ? "啊实打实大大叔大婶" : "实打实大师大师大是的撒大萨达撒打撒"
-            rightLabel.text = second ? "0" : "123啊实打实大"
+//            rightLabel.text = second ? "0" : "123啊实打实大"
+            rightLabel.text  = "\(Bundle.main.preferredLocalizations.first)"
         }
     }
 
