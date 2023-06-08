@@ -50,6 +50,7 @@
 		F5A8959E29C4315800377292 /* XibTestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A8959C29C4315800377292 /* XibTestTableViewCell.swift */; };
 		F5D5AC1329CC471200BA9356 /* DateRelatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5AC1229CC471200BA9356 /* DateRelatedViewController.swift */; };
 		F5D693152A289C6D0046382C /* SwiftUITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D693142A289C6D0046382C /* SwiftUITestView.swift */; };
+		F5D6931C2A2D7A2A0046382C /* BQWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D6931B2A2D7A2A0046382C /* BQWebViewController.swift */; };
 		F5D98DA72A0A4F200049A684 /* TextXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D98DA62A0A4F200049A684 /* TextXibView.xib */; };
 		F5E290F329F922DC0006BFF7 /* MyTestDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E290F229F922DC0006BFF7 /* MyTestDemoTests.swift */; };
 /* End PBXBuildFile section */
@@ -135,6 +136,7 @@
 		F5A8959C29C4315800377292 /* XibTestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibTestTableViewCell.swift; sourceTree = "<group>"; };
 		F5D5AC1229CC471200BA9356 /* DateRelatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRelatedViewController.swift; sourceTree = "<group>"; };
 		F5D693142A289C6D0046382C /* SwiftUITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestView.swift; sourceTree = "<group>"; };
+		F5D6931B2A2D7A2A0046382C /* BQWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BQWebViewController.swift; sourceTree = "<group>"; };
 		F5D98DA62A0A4F200049A684 /* TextXibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextXibView.xib; sourceTree = "<group>"; };
 		F5D98DA82A15E7BE0049A684 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		F5D98DA92A15E7BE0049A684 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				F505DD1029BF1F0E00B0F35A /* TestViewController.swift */,
 				F5030EA129C4AE19003FF3B8 /* CombineViewModelViewController.swift */,
 				F5D5AC1229CC471200BA9356 /* DateRelatedViewController.swift */,
+				F5D6931B2A2D7A2A0046382C /* BQWebViewController.swift */,
 			);
 			path = HomeList;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				F505DCF129BDB87C00B0F35A /* HomeMainViewController.swift in Sources */,
 				F5030EA229C4AE19003FF3B8 /* CombineViewModelViewController.swift in Sources */,
 				F520360829DA9AA400804BAC /* HikeGraph.swift in Sources */,
+				F5D6931C2A2D7A2A0046382C /* BQWebViewController.swift in Sources */,
 				F520360C29DA9E6A00804BAC /* HikeDetail.swift in Sources */,
 				F5030EBE29CAC5B3003FF3B8 /* NotificationTriggerViewController.swift in Sources */,
 				F520361129DAC9EC00804BAC /* SwiftUILabDemo.swift in Sources */,

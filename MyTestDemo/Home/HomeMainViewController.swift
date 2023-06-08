@@ -10,6 +10,7 @@ import UIKit
 
 enum HomeListType: CaseIterable {
     case testVC
+    case webView
     case notificationTrigger
     case extensionList
     case dateRelated
@@ -18,6 +19,8 @@ enum HomeListType: CaseIterable {
         switch self {
         case .extensionList:
             return NormalInfoModel(title: "Extension List", content: "Custom extension properties or methods")
+        case .webView:
+            return NormalInfoModel(title: "WebView Test", content: "use for test web view")
         case .testVC:
             return NormalInfoModel(title: "Test VC", content: "use for test method")
         case .notificationTrigger:
@@ -32,6 +35,8 @@ enum HomeListType: CaseIterable {
         switch self {
         case .extensionList:
             targetVC = ExtensionListViewController()
+        case .webView:
+            targetVC = BQWebViewController()
         case .testVC:
             targetVC = TestViewController()
         case .notificationTrigger:
