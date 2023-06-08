@@ -65,14 +65,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
         BQLogger.log("will present: \(notification.request.content)")
-        return [.alert, .sound, .badge]
+        return [.sound, .badge]
     }
 }
 
 extension AppDelegate {
     func testMethod() {
         let dateUtil = CalendarUtil()
-        let currentList = dateUtil.currentYearDateList()
+        let currentList = dateUtil.currentMonthList()
         print(currentList)
     }
 }
