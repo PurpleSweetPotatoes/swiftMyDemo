@@ -7,10 +7,44 @@
 //  
 
 import SwiftUI
+import BQSwiftKit
+
+struct DoughnutData: DoughutViewData {
+    var lineWidth: CGFloat {
+        10
+    }
+
+    var progress: CGFloat {
+        0.55
+    }
+
+    var emptyColor: Color {
+        .gray
+    }
+
+    var progressColor: Color {
+        .green
+    }
+}
 
 struct SwiftUIView: View {
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            DoughnutView(data: DoughnutData()) {
+                VStack(alignment: .center) {
+                    VStack {
+                        Spacer()
+                        Text("ABC")
+                    }
+                    VStack {
+                        Text("ccc")
+                        Spacer()
+                    }
+                }
+            }
+            .padding(.horizontal, 100)
+        }
     }
 }
 
