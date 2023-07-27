@@ -11,7 +11,7 @@ import Combine
 struct BQBannerView<Content: View, T>: View {
     let datas: [T]
     let horizontalPadding: CGFloat
-    let timerInterval: CGFloat
+    let timerInterval: CGFloat?
     let content: (T) -> Content
     var loopDatas: [T] {
         return [datas.last!] + datas + [datas.first!]
@@ -25,7 +25,7 @@ struct BQBannerView<Content: View, T>: View {
 
     @State private var cancellable: AnyCancellable?
 
-    init(datas: [T], horizontalPadding: CGFloat = 0, timerInterval: CGFloat = 2, @ViewBuilder content: @escaping (T) -> Content) {
+    init(datas: [T], horizontalPadding: CGFloat = 0, timerInterval: CGFloat? = nil, @ViewBuilder content: @escaping (T) -> Content) {
         self.datas = datas
         self.timerInterval = timerInterval
         self.horizontalPadding = horizontalPadding
@@ -50,7 +50,8 @@ struct BQBannerView<Content: View, T>: View {
     }
 
     private func startTimer() {
-        guard timerInterval > 0 else {
+        guard let timerInterval = timerInterval,
+              timerInterval > 0 else {
             return
         }
         stopTimer()
@@ -119,11 +120,14 @@ struct Banner_Test: View {
         VStack {
             Text("click \(currentIndex)")
             BQBannerView(datas: colors) { color in
-                color.frame(width: UIScreen.main.bounds.width,height: 80)
-                    .overlay(Text("\(colors.firstIndex(of: color)!)").font(.largeTitle))
-                    .onTapGesture {
-                        currentIndex = colors.firstIndex(of: color) ?? 0
+                ScrollView(showsIndicators: false) {
+                    ForEach(0..<50) { index in
+                        Text("\(index)")
+                            .foregroundColor(.black)
+                            .frame(width: UIScreen.main.bounds.width)
                     }
+                }.frame(width: UIScreen.main.bounds.width, height: .infinity)
+                .background(color)
             }
             Spacer()
         }

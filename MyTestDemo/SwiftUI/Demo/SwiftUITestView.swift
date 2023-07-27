@@ -7,17 +7,67 @@
 //  
 
 import SwiftUI
+import BQSwiftKit
 
 struct SwiftUITestView: View {
+    @State var selectIndex: Int = 0
+    let Colors: [Color] = [.red, .cyan, .green]
     var body: some View {
-        VStack(spacing: 0) {
-            Image("")
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
-                .background(Color.orange)
-            Rectangle()
-                .foregroundColor(Color.black)
+        VStack {
+            HStack {
+                Button {
+                    selectIndex -= 1
+                } label: {
+                    Text("back")
+                }.disabled(selectIndex == -1)
+
+                Text("current: \(selectIndex)")
+
+                Button {
+                    selectIndex += 1
+                } label: {
+                    Text("forward")
+                }.disabled(selectIndex == 1)
+            }
+            BQTabView(selectIndex: $selectIndex) {
+                ForEach(0..<3) { index in
+                    ScrollView(showsIndicators: false) {
+                        ForEach(0..<20) { row in
+                            Text("\(index) + \(row)")
+                        }
+                    }
+                    .frame(width: UIScreen.main.bounds.width)
+                    .background(
+                        Colors[index]
+                    )
+                }
+            }
         }
-        .edgesIgnoringSafeArea(.all)
+        .onChange(of: selectIndex) { newValue in
+            print("selected Index: \(newValue)")
+        }
+//        RefreshScrollView {
+//            VStack {
+//                ForEach(0..<30) { index in
+//                    Text("\(index)")
+//                        .frame(width: 300)
+//                }
+//            }
+//        }
+//        offsetChanged: { offsetY in
+//            print("current offsetY: \(offsetY)")
+//        }
+//        onRefresh: {
+//            await loadTest()
+//        }
+    }
+
+    func loadTest() async {
+        print("-=-=-= 刷新")
+        do {
+            try? await Task.sleep(nanoseconds: 1_000_000_000 * 2)
+        }
+        print("-=-=-= 完成")
     }
 }
 

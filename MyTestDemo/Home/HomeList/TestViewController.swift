@@ -9,6 +9,7 @@
 import UIKit
 import BQSwiftKit
 import Combine
+import SwiftUI
 
 class TestViewController: UIViewController {
     var storage = Set<AnyCancellable>()
@@ -27,7 +28,11 @@ class TestViewController: UIViewController {
         }
 
         view.backgroundColor = ThemeManager.uiColor.backgroundDefaultColor
-        reuseCellTest()
+//        reuseCellTest()
+        let vc = UIHostingController(rootView: SwiftUITestView())
+        addChild(vc)
+        vc.view.frame = view.bounds
+        view.addSubview(vc.view)
     }
 }
 
