@@ -29,37 +29,10 @@ struct SwiftUITestView: View {
                     Text("forward")
                 }.disabled(selectIndex == 1)
             }
-            BQTabView(selectIndex: $selectIndex) {
-                ForEach(0..<3) { index in
-                    ScrollView(showsIndicators: false) {
-                        ForEach(0..<20) { row in
-                            Text("\(index) + \(row)")
-                        }
-                    }
-                    .frame(width: UIScreen.main.bounds.width)
-                    .background(
-                        Colors[index]
-                    )
-                }
-            }
         }
         .onChange(of: selectIndex) { newValue in
             print("selected Index: \(newValue)")
         }
-//        RefreshScrollView {
-//            VStack {
-//                ForEach(0..<30) { index in
-//                    Text("\(index)")
-//                        .frame(width: 300)
-//                }
-//            }
-//        }
-//        offsetChanged: { offsetY in
-//            print("current offsetY: \(offsetY)")
-//        }
-//        onRefresh: {
-//            await loadTest()
-//        }
     }
 
     func loadTest() async {

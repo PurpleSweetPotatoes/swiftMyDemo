@@ -1,69 +1,27 @@
 PODS:
-  - Alamofire (5.6.4)
-  - BQSwiftKit (0.0.1):
-    - Alamofire
-    - SQLite.swift
-  - JTAppleCalendar (8.0.4)
-  - MJRefresh (3.7.5)
-  - RxCocoa (6.5.0):
-    - RxRelay (= 6.5.0)
-    - RxSwift (= 6.5.0)
-  - RxRelay (6.5.0):
-    - RxSwift (= 6.5.0)
-  - RxSwift (6.5.0)
+  - BQSwiftKit (0.0.1)
   - SnapKit (5.0.1)
-  - SQLite.swift (0.13.3):
-    - SQLite.swift/standard (= 0.13.3)
-  - SQLite.swift/standard (0.13.3)
-  - SSZipArchive (2.4.3)
   - SwiftyJSON (5.0.1)
-  - UIScrollView-InfiniteScroll (1.3.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.6.1)
   - BQSwiftKit (from `submodules/SwiftCustomControl`)
-  - JTAppleCalendar (~> 8.0.3)
-  - MJRefresh
-  - RxCocoa (~> 6.5.0)
-  - RxSwift (~> 6.5.0)
   - SnapKit (~> 5.0.1)
-  - SQLite.swift (~> 0.13.3)
-  - SSZipArchive
   - SwiftyJSON (~> 5.0.1)
-  - UIScrollView-InfiniteScroll
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
-    - Alamofire
-    - JTAppleCalendar
-    - MJRefresh
-    - RxCocoa
-    - RxRelay
-    - RxSwift
     - SnapKit
-    - SQLite.swift
-    - SSZipArchive
     - SwiftyJSON
-    - UIScrollView-InfiniteScroll
 
 EXTERNAL SOURCES:
   BQSwiftKit:
     :path: submodules/SwiftCustomControl
 
 SPEC CHECKSUMS:
-  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
-  BQSwiftKit: 0fec70f07bc1b307887cf3457df326211cdd1532
-  JTAppleCalendar: f95b02c64f56d6f938fbf6582a04dcab9d709ebd
-  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
-  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
-  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
-  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  BQSwiftKit: 5698c882cf345c125f13ce3c04a56ede005ffb42
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  SQLite.swift: 903bfa3bc9ab06345fdfbb578e34f47cfcf417da
-  SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
-  UIScrollView-InfiniteScroll: a30af3dec185edd26d6ad50c521aa277f3ebf177
 
-PODFILE CHECKSUM: 2e3577ca07029660e686a1a029e1a1f4fcc9cce3
+PODFILE CHECKSUM: 36e0dab6a84b239049af14fc423f393af73acce8
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.13.0

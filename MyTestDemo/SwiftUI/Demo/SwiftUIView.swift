@@ -9,7 +9,7 @@
 import SwiftUI
 import BQSwiftKit
 
-struct DoughnutData: DoughutViewData {
+struct DoughnutData: DoughnutViewData {
     var lineWidth: CGFloat {
         10
     }

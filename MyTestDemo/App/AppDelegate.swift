@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         registerNotification()
+        BQLogger.log(UIApplication.isDebug ? "current environment is Debug" : "current environment is Release")
         application.registerForRemoteNotifications()
         testMethod()
         return true
