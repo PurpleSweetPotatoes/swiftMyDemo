@@ -72,6 +72,5 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 extension AppDelegate {
     func testMethod() {
-        
     }
 }

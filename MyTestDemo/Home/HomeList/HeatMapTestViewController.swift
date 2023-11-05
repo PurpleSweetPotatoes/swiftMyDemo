@@ -92,8 +92,8 @@ class GarminHeatMapRenderer: MKOverlayRenderer {
             let locations: [CGFloat] = [0, 0.5, 1]
             if let gradient = CGGradient(colorSpace: colorSpace, colorComponents: colors, locations: locations, count: locations.count) {
 //                let endRadius = 2 * MKMapPointsPerMeterAtLatitude(node.coordinate.latitude)
-                let endRadius = heatMapOverlay.radius
-                let startRadius = endRadius / 3
+                let endRadius = heatMapOverlay.radius * 0.5
+                let startRadius = heatMapOverlay.radius * 0.15
                 context.drawRadialGradient(gradient, startCenter: center, startRadius: startRadius, endCenter: center, endRadius: endRadius, options: .drawsBeforeStartLocation)
             }
         }
