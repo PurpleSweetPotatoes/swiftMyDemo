@@ -25,13 +25,13 @@ final class MyTestDemoTests: XCTestCase {
             semaphore.signal()
         }
         semaphore.wait()
-        print("=== 完成")
+        print("completed test")
     }
 
     func loadApi() async throws {
-        print("=== 测试方法")
+        print("start loadApi")
         throw NSError(domain: "报错", code: 400)
-        print("=== 抛异常了")
+        print("throw error")
     }
 
     func testExample() throws {

@@ -14,6 +14,7 @@ enum HomeListType: CaseIterable {
     case notificationTrigger
     case extensionList
     case dateRelated
+    case heatMap
 
     var dataSource: NormalInfoDataSource {
         switch self {
@@ -27,6 +28,8 @@ enum HomeListType: CaseIterable {
             return NormalInfoModel(title: "Create Push Notification", content: "quick and easy creation notification")
         case .dateRelated:
             return NormalInfoModel(title: "Date Related VC", content: "some date test & method")
+        case .heatMap:
+            return NormalInfoModel(title: "HeatMap Apple Map View", content: "custom apple heatMap")
         }
     }
 
@@ -43,6 +46,8 @@ enum HomeListType: CaseIterable {
             targetVC = NotificationTriggerViewController()
         case .dateRelated:
             targetVC = DateRelatedViewController()
+        case .heatMap:
+            targetVC = HeatMapTestViewController()
         }
         targetVC?.title = dataSource.title
         return targetVC ?? UIViewController()
@@ -55,7 +60,7 @@ class HomeMainViewController: UIViewController {
     private var window: UIWindow?
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = tabBarName
+        title = "\(tabBarName)(\(UIApplication.isDebug ? "Debug" : "Normal"))"
         view.backgroundColor = .white
         setupUI()
         testMethod()
@@ -93,12 +98,6 @@ extension HomeMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         navigationController?.pushViewController(dataList[indexPath.row].toViewController, animated: true)
-//        let alertVC = UIAlertController(title: "aaa", message: "bb", preferredStyle: .alert)
-//        alertVC.addAction(UIAlertAction(title: "back", style: .cancel))
-//        print("-=-=-=: \(UIApplication.shared.connectedScenes)")
-//        navigationController?.present(alertVC, animated: true, completion: {
-//            print("-=-=-=: \(UIApplication.shared.connectedScenes)")
-//        })
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

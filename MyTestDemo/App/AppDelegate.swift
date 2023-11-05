@@ -44,9 +44,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         BQLogger.log("开始注册")
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {
-                print("同意")
+                BQLogger.log("同意")
             } else {
-                print("拒绝")
+                BQLogger.warning("拒绝")
             }
         }
         UNUserNotificationCenter.current().delegate = self
@@ -72,8 +72,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 extension AppDelegate {
     func testMethod() {
-        let dateUtil = CalendarUtil()
-        let currentList = dateUtil.currentMonthList()
-        print(currentList)
+        
     }
 }
