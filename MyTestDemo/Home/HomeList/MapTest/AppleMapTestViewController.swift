@@ -18,6 +18,8 @@ class AppleMapTestViewController: UIViewController {
     private var edge: UIEdgeInsets {
         UIEdgeInsets(top: 95, left: 32, bottom: (view.bounds.height * 0.5) + 70, right: 32)
     }
+
+    var markZIndex: Float = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,14 +32,19 @@ class AppleMapTestViewController: UIViewController {
         let alertVC = UIAlertController(title: "Action", message: "add location at screen center", preferredStyle: .actionSheet)
 
         alertVC.addAction(UIAlertAction(title: "Add Cluster Annotation", style: .default) { _ in
-            self.addAnnotation(isCluster: true)
+            self.markZIndex += 1
+            self.addAnnotation(zPostion: self.markZIndex, isCluster: true)
+        })
+
+        alertVC.addAction(UIAlertAction(title: "Add China Bounds line", style: .default) { _ in
+            self.addChinaBounds()
         })
 
         alertVC.addAction(UIAlertAction(title: "Remove All Annotation", style: .default) { _ in
             self.mapView.removeAnnotations(self.annotations)
         })
 
-        alertVC.addAction(UIAlertAction(title: "add PolyLine With Mark", style: .default) { _ in
+        alertVC.addAction(UIAlertAction(title: "Convert mark to polyLine ", style: .default) { _ in
             self.addPolyLineWithMark()
         })
 
@@ -52,42 +59,43 @@ private extension AppleMapTestViewController {
     func addAnnotation(zPostion: Float = 0, isCluster: Bool = false) {
         let centerCoordinate = mapView.centerCoordinate
         let annotation = ClimbAnnotation(coordinate: centerCoordinate)
+        annotation.zIndex = zPostion
         mapView.addAnnotation(annotation)
         annotations.append(annotation)
     }
 
+    func addChinaBounds() {
+        let chinaPoints = MapUtils.getCountryBounds(.china)
+        let ChinaPolyline = PolyLineOverlay(coordinates: chinaPoints, count: chinaPoints.count)
+        ChinaPolyline.strokeColor = .black
+        ChinaPolyline.lineWidth = 8
+        ChinaPolyline.zIndex = -61
+
+        let mainlandChinaPoints = MapUtils.getCountryBounds(.mainlandChina)
+        let mainlandChinaPolyline = PolyLineOverlay(coordinates: mainlandChinaPoints, count: mainlandChinaPoints.count)
+        mainlandChinaPolyline.lineWidth = 5
+        mainlandChinaPolyline.zIndex = -60
+        mapView.add(polyline: mainlandChinaPolyline)
+        mapView.add(polyline: ChinaPolyline)
+    }
+
     func addPolyLineWithMark() {
-        let points = mapView.annotations.compactMap { $0.coordinate }
+        let points = mapView.annotations
+            .compactMap { $0 as? ClimbAnnotation }
+            .sorted { $0.zIndex < $1.zIndex }
+            .map { $0.coordinate }
         mapView.removeAnnotations(mapView.annotations)
 
-        let backgroundPolyLine = BQPolyLine(coordinates: points, count: points.count)
-        backgroundPolyLine.color = .black
+        let backgroundPolyLine = PolyLineOverlay(coordinates: points, count: points.count)
+        backgroundPolyLine.strokeColor = .black
         backgroundPolyLine.lineWidth = 8
         backgroundPolyLine.zIndex = -61
 
-        let foregroundPolyLine = BQPolyLine(coordinates: points, count: points.count)
-        foregroundPolyLine.color = .cyan
+        let foregroundPolyLine = PolyLineOverlay(coordinates: points, count: points.count)
         foregroundPolyLine.lineWidth = 5
         foregroundPolyLine.zIndex = -60
-        add(polyline: foregroundPolyLine)
-        add(polyline: backgroundPolyLine)
-    }
-
-    func add(polyline: BQPolyLine) {
-        guard !mapView.overlays.isEmpty else {
-            mapView.addOverlay(polyline)
-            return
-        }
-        for overlay in mapView.overlays {
-            if let addedPolyline = overlay as? BQPolyLine {
-                if polyline.zIndex > addedPolyline.zIndex {
-                    continue
-                }
-            }
-            mapView.insertOverlay(polyline, below: overlay)
-            return
-        }
-        mapView.addOverlay(polyline)
+        mapView.add(polyline: foregroundPolyLine)
+        mapView.add(polyline: backgroundPolyLine)
     }
 }
 
@@ -175,7 +183,7 @@ extension AppleMapTestViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let polyline = overlay as? BQPolyLine {
             let polyLineRender = MKPolylineRenderer(overlay: overlay)
-            polyLineRender.strokeColor = polyline.color
+            polyLineRender.strokeColor = polyline.strokeColor
             polyLineRender.lineWidth = polyline.lineWidth
             return polyLineRender
         }
@@ -183,7 +191,6 @@ extension AppleMapTestViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        print("-=-=- regionDidChangeAnimated")
     }
 }
 

@@ -8,9 +8,12 @@
 
 import MapKit
 import Foundation
+import BQSwiftKit
 
-class BQPolyLine: MKPolyline {
-    var color: UIColor?
+class PolyLineOverlay: MKPolyline {
+    var strokeColor: UIColor = .cyan
     var lineWidth: CGFloat = 5
     var zIndex: CGFloat = 0
 }
+
+extension PolyLineOverlay: BQPolyLine {}

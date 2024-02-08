@@ -12,7 +12,7 @@ class ClimbAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var clusterId: String { Self.description() }
     let image = UIImage(named: "mountain_icon")
-    var zIndex: Int = 0
+    var zIndex: Float = 0
     init(coordinate: CLLocationCoordinate2D) {
         self.coordinate = coordinate
     }
