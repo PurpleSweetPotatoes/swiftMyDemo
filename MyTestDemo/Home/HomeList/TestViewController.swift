@@ -13,26 +13,13 @@ import SwiftUI
 
 class TestViewController: UIViewController {
     var storage = Set<AnyCancellable>()
+    deinit {
+        print("deinit")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let date = Date()
-        let minDate = date.addingTimeInterval(-60 * 60 * 24)
-        let maxDate = date.addingTimeInterval(60 * 60 * 24)
-        let arr = [minDate.addingTimeInterval(-3), minDate, minDate.addingTimeInterval(3), maxDate.addingTimeInterval(-3), maxDate, maxDate.addingTimeInterval(1)]
-        arr.forEach { date  in
-            if minDate...maxDate ~= date {
-                print("\(date) 在范围内")
-            } else {
-                print("\(date) 在范围外")
-            }
-        }
-
-        view.backgroundColor = ThemeManager.uiColor.backgroundDefaultColor
-//        reuseCellTest()
-        let vc = UIHostingController(rootView: SwiftUITestView())
-        addChild(vc)
-        vc.view.frame = view.bounds
-        view.addSubview(vc.view)
+        view.backgroundColor = .white
+        addMoreXib()
     }
 }
 
@@ -366,5 +353,71 @@ private extension TestViewController {
         layer.minificationFilter = .nearest
         layer.magnificationFilter = .nearest
         view.layer.addSublayer(layer)
+    }
+}
+
+private extension TestViewController {
+    func stackViewTest() {
+        let stackView = UIStackView()
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .leading
+        stackView.spacing = 5
+        stackView.backgroundColor = .randomColor
+        stackView.frame = CGRect(x: 16, y: 100, width: view.sizeW - 32, height: 30)
+        // [45.81216216087341, 79.05598640441895, 35.62187612056732, 45.515175461769104] 221.00520014762878
+        let result = [45.81216216087341, 79.05598640441895, 35.62187612056732, 45.515175461769104].reduce(0) { partialResult, width in
+            partialResult + width
+        }
+        let arr = [45.81216216087341, 129.13366324833711, 58.18640136492181, 74.34656890753229]
+        let colors: [UIColor] = [.red, .green, .orange, .cyan]
+        let texts: [String] = ["Round", "Jump Time", "Reps", "Speed"]
+        for (index, width) in arr.enumerated() {
+            let label = UILabel()
+            label.adjustsFontSizeToFitWidth = true
+            label.minimumScaleFactor = 0.75
+            label.numberOfLines = 0
+            label.textAlignment = .right
+            label.backgroundColor = colors[index]
+            stackView.addArrangedSubview(label)
+            label.snp.makeConstraints {
+                $0.width.equalTo(width)
+                $0.height.equalToSuperview()
+            }
+        }
+
+//        stackView.addArrangedSubview(label)
+//        let imageV = UIImageView()
+//        imageV.backgroundColor = .red
+//        stackView.addArrangedSubview(imageV)
+//        imageV.snp.makeConstraints{
+//            $0.width.equalTo(20)
+//            $0.height.equalToSuperview()
+//        }
+//        let spacingV = UIView()
+//        stackView.addArrangedSubview(spacingV)
+//        spacingV.snp.makeConstraints{
+//            $0.width.equalTo(5)
+//            $0.height.equalToSuperview()
+//        }
+//            view.snp.makeConstraints {
+//                $0.width.equalTo(width)
+//                $0.height.equalToSuperview()
+//            }
+//        }
+        view.addSubview(stackView)
+    }
+}
+
+private extension TestViewController {
+    func addMoreXib() {
+        if let firstView = TestMoreXibView.loadView(type: .first) {
+            firstView.frame = CGRect(x: 0, y: 100, width: view.sizeW, height: 100)
+            view.addSubview(firstView)
+        }
+
+        if let secondView = TestMoreXibView.loadView(type: .last) {
+            secondView.frame = CGRect(x: 0, y: 200, width: view.sizeW, height: 100)
+            view.addSubview(secondView)
+        }
     }
 }

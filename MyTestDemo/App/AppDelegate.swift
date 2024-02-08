@@ -9,6 +9,7 @@
 import UIKit
 import UserNotifications
 import BQSwiftKit
+import GoogleMaps
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         registerNotification()
         BQLogger.log(UIApplication.isDebug ? "current environment is Debug" : "current environment is Release")
         application.registerForRemoteNotifications()
+        UIViewController.startLifeCyclingLog()
+        GMSServices.setAbnormalTerminationReportingEnabled(false)
+        GMSServices.setMetalRendererEnabled(false)
+        GMSServices.provideAPIKey("AIzaSyDpi2zD8sEwKqMhPSK2s_Qb1Cfm-X-Z3fs")
         testMethod()
         return true
     }
@@ -34,8 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
 }
 
 // MARK: - UNUserNotificationCenterDelegate
@@ -70,7 +73,52 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
 }
 
+import MapKit
+
+class ClimbPolyLine: NSObject, MKOverlay {
+    var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var boundingMapRect: MKMapRect = MKMapRect()
+    var zPosition: Int
+    init(_ zPosition: Int) {
+        self.zPosition = zPosition
+    }
+}
+
+class NormalPolyLine: NSObject, MKOverlay {
+    var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var boundingMapRect: MKMapRect = MKMapRect()
+    var zIndex: Int
+    init(_ zIndex: Int) {
+        self.zIndex = zIndex
+    }
+}
+
 extension AppDelegate {
     func testMethod() {
+        let array: [MKOverlay] = [
+            NormalPolyLine(5),
+            NormalPolyLine(1),
+            ClimbPolyLine(2),
+            ClimbPolyLine(1),
+            ClimbPolyLine(3),
+            NormalPolyLine(4),
+        ]
+        let climbPolylines = array.compactMap { $0 as? ClimbPolyLine}
+        let otherOverlays = array.filter { !($0 is ClimbPolyLine) }
+        let sortedClimbPolylines = climbPolylines.sorted {
+            $0.zPosition < $1.zPosition
+        }
+        let sortedOverlays: [MKOverlay] = sortedClimbPolylines + otherOverlays
+        print("-=-=- sorted: \(sortedOverlays)")
+        for index in 0..<array.count {
+            let oldOverly = array[index]
+            let newOverly = sortedOverlays[index]
+            if oldOverly.coordinate.latitude != newOverly.coordinate.latitude,
+               oldOverly.coordinate.longitude != newOverly.coordinate.longitude,
+               !MKMapRectEqualToRect(oldOverly.boundingMapRect, newOverly.boundingMapRect) {
+                print("不等 刷新")
+                return
+            }
+        }
     }
 }

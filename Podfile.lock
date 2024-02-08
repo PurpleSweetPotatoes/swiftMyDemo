@@ -1,15 +1,22 @@
 PODS:
   - BQSwiftKit (0.0.1)
+  - GoogleMaps (6.0.1):
+    - GoogleMaps/Maps (= 6.0.1)
+  - GoogleMaps/Base (6.0.1)
+  - GoogleMaps/Maps (6.0.1):
+    - GoogleMaps/Base
   - SnapKit (5.0.1)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
   - BQSwiftKit (from `submodules/SwiftCustomControl`)
+  - GoogleMaps (~> 6.0.0)
   - SnapKit (~> 5.0.1)
   - SwiftyJSON (~> 5.0.1)
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+    - GoogleMaps
     - SnapKit
     - SwiftyJSON
 
@@ -19,9 +26,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   BQSwiftKit: 95b456b6cd9c95c4e078c3264b5f41eeea372248
+  GoogleMaps: c213fc2334b7374144cede914da779b99be0ab74
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 36e0dab6a84b239049af14fc423f393af73acce8
+PODFILE CHECKSUM: 855e143674d72c4bdd0d4342b44c7968c85b94bd
 
 COCOAPODS: 1.13.0

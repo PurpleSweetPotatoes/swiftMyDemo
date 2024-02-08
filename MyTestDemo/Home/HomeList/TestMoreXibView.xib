@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="byJ-kQ-5gx" customClass="TestMoreXibView" customModule="MyTestDemo">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1T-D2-GaF">
+                    <rect key="frame" x="0.0" y="59" width="375" height="102"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="aaa"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="EFO-Fc-JkJ"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="EFO-Fc-JkJ" firstAttribute="trailing" secondItem="a1T-D2-GaF" secondAttribute="trailing" id="Jm7-U6-9Ke"/>
+                <constraint firstItem="a1T-D2-GaF" firstAttribute="leading" secondItem="EFO-Fc-JkJ" secondAttribute="leading" id="PSt-ZO-rrS"/>
+                <constraint firstItem="EFO-Fc-JkJ" firstAttribute="bottom" secondItem="a1T-D2-GaF" secondAttribute="bottom" id="bMH-T9-kjv"/>
+                <constraint firstItem="a1T-D2-GaF" firstAttribute="top" secondItem="EFO-Fc-JkJ" secondAttribute="top" id="dUg-b3-SA7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="button" destination="a1T-D2-GaF" id="bUK-Gl-V6z"/>
+            </connections>
+            <point key="canvasLocation" x="-1089.3129770992366" y="374.29577464788736"/>
+        </view>
+        <view contentMode="scaleToFill" id="80B-MJ-nJR" customClass="TestMoreXibView" customModule="MyTestDemo">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFs-13-ZhZ">
+                    <rect key="frame" x="0.0" y="59" width="375" height="92"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="bbb"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="n3X-Km-Fs7"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="NFs-13-ZhZ" firstAttribute="leading" secondItem="n3X-Km-Fs7" secondAttribute="leading" id="3HT-MD-xla"/>
+                <constraint firstItem="n3X-Km-Fs7" firstAttribute="trailing" secondItem="NFs-13-ZhZ" secondAttribute="trailing" id="Jyi-J3-eWI"/>
+                <constraint firstItem="n3X-Km-Fs7" firstAttribute="bottom" secondItem="NFs-13-ZhZ" secondAttribute="bottom" id="YGz-ht-24A"/>
+                <constraint firstItem="NFs-13-ZhZ" firstAttribute="top" secondItem="n3X-Km-Fs7" secondAttribute="top" id="bPr-VE-GdF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="button" destination="NFs-13-ZhZ" id="9Xk-qa-oB0"/>
+            </connections>
+            <point key="canvasLocation" x="-1245" y="610"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

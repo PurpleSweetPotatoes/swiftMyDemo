@@ -7,6 +7,7 @@
 //  
 
 import UIKit
+import SwiftUI
 
 class AboutMainViewController: UIViewController {
 
@@ -14,6 +15,11 @@ class AboutMainViewController: UIViewController {
         super.viewDidLoad()
         title = tabBarName
         view.backgroundColor = .white
+
+        let subViewController = UIHostingController(rootView: AboutMainView())
+        addChild(subViewController)
+        subViewController.view.frame = view.bounds
+        view.addSubview(subViewController.view)
     }
     
 }

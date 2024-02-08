@@ -90,6 +90,7 @@ struct OffsetReader: View {
     @State private var initalOffset: CGFloat?
 
     public var body: some View {
+        
         GeometryReader { geometry in
             Spacer(minLength: 0)
                 .onChange(of: geometry.frame(in: .global)) { value in

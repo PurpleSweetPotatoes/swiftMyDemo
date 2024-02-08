@@ -21,7 +21,6 @@
 		F5030EBE29CAC5B3003FF3B8 /* NotificationTriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5030EBD29CAC5B3003FF3B8 /* NotificationTriggerViewController.swift */; };
 		F505DCEC29BDB56500B0F35A /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F505DCEB29BDB56500B0F35A /* RootViewController.swift */; };
 		F505DCF129BDB87C00B0F35A /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F505DCF029BDB87C00B0F35A /* HomeMainViewController.swift */; };
-		F505DCF329BDB88400B0F35A /* AboutMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F505DCF229BDB88400B0F35A /* AboutMainViewController.swift */; };
 		F505DCF729BDD30B00B0F35A /* ExtensionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F505DCF629BDD30B00B0F35A /* ExtensionListViewController.swift */; };
 		F505DCFC29BDD40C00B0F35A /* NormalInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F505DCFB29BDD40C00B0F35A /* NormalInfoCell.swift */; };
 		F505DCFE29BDD4E900B0F35A /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = F505DCFD29BDD4E900B0F35A /* Const.swift */; };
@@ -45,7 +44,17 @@
 		F520362029DDB30000804BAC /* MatrixDigitalRain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520361B29DDB30000804BAC /* MatrixDigitalRain.swift */; };
 		F520362129DDB30000804BAC /* SidesAnimationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520361C29DDB30000804BAC /* SidesAnimationsTest.swift */; };
 		F520362229DDB30000804BAC /* MatchedGeometryEffectViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520361D29DDB30000804BAC /* MatchedGeometryEffectViewTest.swift */; };
+		F52809122B3BE73000CF9BAB /* TestMoreXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52809112B3BE73000CF9BAB /* TestMoreXibView.swift */; };
+		F52809142B3BE73F00CF9BAB /* TestMoreXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F52809132B3BE73F00CF9BAB /* TestMoreXibView.xib */; };
 		F537420029E3E01200064386 /* ListDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53741FF29E3E01200064386 /* ListDemo.swift */; };
+		F549F4F82AF8C8620013D941 /* GarminHeatMapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549F4F72AF8C8620013D941 /* GarminHeatMapRenderer.swift */; };
+		F549F4FA2AF8C8C30013D941 /* GarminHeatMapOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549F4F92AF8C8C30013D941 /* GarminHeatMapOverlay.swift */; };
+		F549F4FC2AF8C90D0013D941 /* GarminHeatMapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549F4FB2AF8C90D0013D941 /* GarminHeatMapHelper.swift */; };
+		F549F4FF2AF8CFDC0013D941 /* HeatMapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549F4FE2AF8CFDC0013D941 /* HeatMapDataSource.swift */; };
+		F55B8F2E2B491BB80001E280 /* AboutMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55B8F2D2B491BB80001E280 /* AboutMainView.swift */; };
+		F55B8F312B491CDD0001E280 /* SwiftUITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55B8F302B491CDD0001E280 /* SwiftUITestView.swift */; };
+		F55B8F332B491D3D0001E280 /* AboutMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55B8F322B491D3C0001E280 /* AboutMainViewController.swift */; };
+		F55B8F352B4931F30001E280 /* EnvironmentDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55B8F342B4931F30001E280 /* EnvironmentDemo.swift */; };
 		F56237E32A1B497E00E1F729 /* APNSInfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56237E22A1B497E00E1F729 /* APNSInfoList.swift */; };
 		F563A14029BB6FEF00E7358F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563A13F29BB6FEF00E7358F /* AppDelegate.swift */; };
 		F563A14229BB6FEF00E7358F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563A14129BB6FEF00E7358F /* SceneDelegate.swift */; };
@@ -54,9 +63,13 @@
 		F563A14C29BB6FF100E7358F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F563A14A29BB6FF100E7358F /* LaunchScreen.storyboard */; };
 		F5754B4E2AF7241800F79A30 /* HeatMapTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5754B4D2AF7241800F79A30 /* HeatMapTestViewController.swift */; };
 		F5754B502AF724A200F79A30 /* HeatLocations_apple.json in Resources */ = {isa = PBXBuildFile; fileRef = F5754B4F2AF724A200F79A30 /* HeatLocations_apple.json */; };
+		F579B4522B6B8D9900F598F0 /* AppleMapTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F579B4512B6B8D9900F598F0 /* AppleMapTestViewController.swift */; };
+		F579B4552B6B93C500F598F0 /* ClimbAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F579B4542B6B93C500F598F0 /* ClimbAnnotation.swift */; };
+		F579B4572B70E23100F598F0 /* PolyLineOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F579B4562B70E23000F598F0 /* PolyLineOverlay.swift */; };
+		F5A41EAE2B736172007B2D3F /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A41EAD2B736172007B2D3F /* GoogleMapViewController.swift */; };
+		F5A7C6662B54F41200158EFB /* AudioPromptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A7C6652B54F41200158EFB /* AudioPromptsViewController.swift */; };
 		F5A8959E29C4315800377292 /* XibTestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A8959C29C4315800377292 /* XibTestTableViewCell.swift */; };
 		F5D5AC1329CC471200BA9356 /* DateRelatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5AC1229CC471200BA9356 /* DateRelatedViewController.swift */; };
-		F5D693152A289C6D0046382C /* SwiftUITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D693142A289C6D0046382C /* SwiftUITestView.swift */; };
 		F5D6931C2A2D7A2A0046382C /* BQWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D6931B2A2D7A2A0046382C /* BQWebViewController.swift */; };
 		F5D98DA72A0A4F200049A684 /* TextXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D98DA62A0A4F200049A684 /* TextXibView.xib */; };
 		F5E290F329F922DC0006BFF7 /* MyTestDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E290F229F922DC0006BFF7 /* MyTestDemoTests.swift */; };
@@ -112,7 +125,6 @@
 		F5030EBF29CAF951003FF3B8 /* MyTestDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyTestDemo.entitlements; sourceTree = "<group>"; };
 		F505DCEB29BDB56500B0F35A /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F505DCF029BDB87C00B0F35A /* HomeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
-		F505DCF229BDB88400B0F35A /* AboutMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMainViewController.swift; sourceTree = "<group>"; };
 		F505DCF629BDD30B00B0F35A /* ExtensionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionListViewController.swift; sourceTree = "<group>"; };
 		F505DCFB29BDD40C00B0F35A /* NormalInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalInfoCell.swift; sourceTree = "<group>"; };
 		F505DCFD29BDD4E900B0F35A /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -136,7 +148,17 @@
 		F520361B29DDB30000804BAC /* MatrixDigitalRain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixDigitalRain.swift; sourceTree = "<group>"; };
 		F520361C29DDB30000804BAC /* SidesAnimationsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidesAnimationsTest.swift; sourceTree = "<group>"; };
 		F520361D29DDB30000804BAC /* MatchedGeometryEffectViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchedGeometryEffectViewTest.swift; sourceTree = "<group>"; };
+		F52809112B3BE73000CF9BAB /* TestMoreXibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMoreXibView.swift; sourceTree = "<group>"; };
+		F52809132B3BE73F00CF9BAB /* TestMoreXibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestMoreXibView.xib; sourceTree = "<group>"; };
 		F53741FF29E3E01200064386 /* ListDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDemo.swift; sourceTree = "<group>"; };
+		F549F4F72AF8C8620013D941 /* GarminHeatMapRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarminHeatMapRenderer.swift; sourceTree = "<group>"; };
+		F549F4F92AF8C8C30013D941 /* GarminHeatMapOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarminHeatMapOverlay.swift; sourceTree = "<group>"; };
+		F549F4FB2AF8C90D0013D941 /* GarminHeatMapHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarminHeatMapHelper.swift; sourceTree = "<group>"; };
+		F549F4FE2AF8CFDC0013D941 /* HeatMapDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatMapDataSource.swift; sourceTree = "<group>"; };
+		F55B8F2D2B491BB80001E280 /* AboutMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMainView.swift; sourceTree = "<group>"; };
+		F55B8F302B491CDD0001E280 /* SwiftUITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestView.swift; sourceTree = "<group>"; };
+		F55B8F322B491D3C0001E280 /* AboutMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMainViewController.swift; sourceTree = "<group>"; };
+		F55B8F342B4931F30001E280 /* EnvironmentDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentDemo.swift; sourceTree = "<group>"; };
 		F56237E22A1B497E00E1F729 /* APNSInfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNSInfoList.swift; sourceTree = "<group>"; };
 		F563A13C29BB6FEF00E7358F /* MyTestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F563A13F29BB6FEF00E7358F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,9 +169,13 @@
 		F563A14D29BB6FF100E7358F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5754B4D2AF7241800F79A30 /* HeatMapTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatMapTestViewController.swift; sourceTree = "<group>"; };
 		F5754B4F2AF724A200F79A30 /* HeatLocations_apple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HeatLocations_apple.json; sourceTree = "<group>"; };
+		F579B4512B6B8D9900F598F0 /* AppleMapTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapTestViewController.swift; sourceTree = "<group>"; };
+		F579B4542B6B93C500F598F0 /* ClimbAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbAnnotation.swift; sourceTree = "<group>"; };
+		F579B4562B70E23000F598F0 /* PolyLineOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyLineOverlay.swift; sourceTree = "<group>"; };
+		F5A41EAD2B736172007B2D3F /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
+		F5A7C6652B54F41200158EFB /* AudioPromptsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPromptsViewController.swift; sourceTree = "<group>"; };
 		F5A8959C29C4315800377292 /* XibTestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibTestTableViewCell.swift; sourceTree = "<group>"; };
 		F5D5AC1229CC471200BA9356 /* DateRelatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRelatedViewController.swift; sourceTree = "<group>"; };
-		F5D693142A289C6D0046382C /* SwiftUITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestView.swift; sourceTree = "<group>"; };
 		F5D6931B2A2D7A2A0046382C /* BQWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BQWebViewController.swift; sourceTree = "<group>"; };
 		F5D98DA62A0A4F200049A684 /* TextXibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextXibView.xib; sourceTree = "<group>"; };
 		F5D98DA82A15E7BE0049A684 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
@@ -246,24 +272,31 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		F505DCEE29BDB84B00B0F35A /* About */ = {
+		F505DCEE29BDB84B00B0F35A /* SwiftUIDemo */ = {
 			isa = PBXGroup;
 			children = (
-				F505DCF229BDB88400B0F35A /* AboutMainViewController.swift */,
+				F55B8F322B491D3C0001E280 /* AboutMainViewController.swift */,
+				F55B8F2D2B491BB80001E280 /* AboutMainView.swift */,
+				F55B8F2F2B491CAF0001E280 /* subViews */,
 			);
-			path = About;
+			path = SwiftUIDemo;
 			sourceTree = "<group>";
 		};
 		F505DCF529BDD2DF00B0F35A /* HomeList */ = {
 			isa = PBXGroup;
 			children = (
+				F579B4532B6B8F0B00F598F0 /* MapTest */,
 				F505DCF629BDD30B00B0F35A /* ExtensionListViewController.swift */,
 				F5030EBD29CAC5B3003FF3B8 /* NotificationTriggerViewController.swift */,
 				F505DD1029BF1F0E00B0F35A /* TestViewController.swift */,
 				F5030EA129C4AE19003FF3B8 /* CombineViewModelViewController.swift */,
 				F5D5AC1229CC471200BA9356 /* DateRelatedViewController.swift */,
 				F5D6931B2A2D7A2A0046382C /* BQWebViewController.swift */,
+				F52809112B3BE73000CF9BAB /* TestMoreXibView.swift */,
+				F52809132B3BE73F00CF9BAB /* TestMoreXibView.xib */,
+				F549F4F62AF8C8410013D941 /* Heatmap */,
 				F5754B4D2AF7241800F79A30 /* HeatMapTestViewController.swift */,
+				F5A7C6652B54F41200158EFB /* AudioPromptsViewController.swift */,
 			);
 			path = HomeList;
 			sourceTree = "<group>";
@@ -311,7 +344,6 @@
 				E246CA072A3A166B008FC3E2 /* SiteView.swift */,
 				F5030EA329C4B5B2003FF3B8 /* StateViewModelView.swift */,
 				F53741FF29E3E01200064386 /* ListDemo.swift */,
-				F5D693142A289C6D0046382C /* SwiftUITestView.swift */,
 				E24851D82A341E2500B96936 /* BQBannerView.swift */,
 			);
 			path = Demo;
@@ -350,6 +382,34 @@
 				F520361D29DDB30000804BAC /* MatchedGeometryEffectViewTest.swift */,
 			);
 			path = animationTest;
+			sourceTree = "<group>";
+		};
+		F549F4F62AF8C8410013D941 /* Heatmap */ = {
+			isa = PBXGroup;
+			children = (
+				F549F4FD2AF8CFC60013D941 /* models */,
+				F549F4F72AF8C8620013D941 /* GarminHeatMapRenderer.swift */,
+				F549F4F92AF8C8C30013D941 /* GarminHeatMapOverlay.swift */,
+				F549F4FB2AF8C90D0013D941 /* GarminHeatMapHelper.swift */,
+			);
+			path = Heatmap;
+			sourceTree = "<group>";
+		};
+		F549F4FD2AF8CFC60013D941 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				F549F4FE2AF8CFDC0013D941 /* HeatMapDataSource.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		F55B8F2F2B491CAF0001E280 /* subViews */ = {
+			isa = PBXGroup;
+			children = (
+				F55B8F302B491CDD0001E280 /* SwiftUITestView.swift */,
+				F55B8F342B4931F30001E280 /* EnvironmentDemo.swift */,
+			);
+			path = subViews;
 			sourceTree = "<group>";
 		};
 		F56237E12A1B495100E1F729 /* NotificationList */ = {
@@ -391,11 +451,22 @@
 				F505DCFF29BDD67500B0F35A /* Theme */,
 				F505DCF829BDD32C00B0F35A /* Basic */,
 				F505DCED29BDB83C00B0F35A /* Home */,
-				F505DCEE29BDB84B00B0F35A /* About */,
+				F505DCEE29BDB84B00B0F35A /* SwiftUIDemo */,
 				F505DCEA29BDB4E900B0F35A /* Support */,
 				F505DCE929BDB44600B0F35A /* App */,
 			);
 			path = MyTestDemo;
+			sourceTree = "<group>";
+		};
+		F579B4532B6B8F0B00F598F0 /* MapTest */ = {
+			isa = PBXGroup;
+			children = (
+				F579B4512B6B8D9900F598F0 /* AppleMapTestViewController.swift */,
+				F579B4542B6B93C500F598F0 /* ClimbAnnotation.swift */,
+				F579B4562B70E23000F598F0 /* PolyLineOverlay.swift */,
+				F5A41EAD2B736172007B2D3F /* GoogleMapViewController.swift */,
+			);
+			path = MapTest;
 			sourceTree = "<group>";
 		};
 		F5D98DA32A0A4DB40049A684 /* Xib */ = {
@@ -444,6 +515,7 @@
 				F563A13A29BB6FEF00E7358F /* Resources */,
 				46E65F67B4C62E71DFEE079F /* [CP] Embed Pods Frameworks */,
 				F5030EBC29CAA328003FF3B8 /* Embed Foundation Extensions */,
+				F9FE910533B87AF5757956F7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -537,6 +609,7 @@
 				F563A14929BB6FF100E7358F /* Assets.xcassets in Resources */,
 				F5D98DA72A0A4F200049A684 /* TextXibView.xib in Resources */,
 				F563A14729BB6FEF00E7358F /* Main.storyboard in Resources */,
+				F52809142B3BE73F00CF9BAB /* TestMoreXibView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +662,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyTestDemo/Pods-MyTestDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F9FE910533B87AF5757956F7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyTestDemo/Pods-MyTestDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyTestDemo/Pods-MyTestDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyTestDemo/Pods-MyTestDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -605,7 +695,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F505DD0129BDD68900B0F35A /* ThemePrortocol.swift in Sources */,
-				F505DCF329BDB88400B0F35A /* AboutMainViewController.swift in Sources */,
 				F505DD0F29BEF47100B0F35A /* SwiftUIView.swift in Sources */,
 				F5A8959E29C4315800377292 /* XibTestTableViewCell.swift in Sources */,
 				F5030EA029C4AC38003FF3B8 /* CombineViewModel.swift in Sources */,
@@ -613,28 +702,39 @@
 				F505DCF129BDB87C00B0F35A /* HomeMainViewController.swift in Sources */,
 				F5030EA229C4AE19003FF3B8 /* CombineViewModelViewController.swift in Sources */,
 				E24851D92A341E2500B96936 /* BQBannerView.swift in Sources */,
+				F549F4FF2AF8CFDC0013D941 /* HeatMapDataSource.swift in Sources */,
 				E246CA082A3A166B008FC3E2 /* SiteView.swift in Sources */,
 				F520360829DA9AA400804BAC /* HikeGraph.swift in Sources */,
+				F549F4FA2AF8C8C30013D941 /* GarminHeatMapOverlay.swift in Sources */,
+				F579B4522B6B8D9900F598F0 /* AppleMapTestViewController.swift in Sources */,
 				F5D6931C2A2D7A2A0046382C /* BQWebViewController.swift in Sources */,
 				E29C93D32A2A17DE007812F9 /* BQCalendarMonthView.swift in Sources */,
 				E246CA062A3A1667008FC3E2 /* HomeView.swift in Sources */,
 				F520360C29DA9E6A00804BAC /* HikeDetail.swift in Sources */,
+				F52809122B3BE73000CF9BAB /* TestMoreXibView.swift in Sources */,
 				F5030EBE29CAC5B3003FF3B8 /* NotificationTriggerViewController.swift in Sources */,
 				F520361129DAC9EC00804BAC /* SwiftUILabDemo.swift in Sources */,
+				F5A41EAE2B736172007B2D3F /* GoogleMapViewController.swift in Sources */,
+				F549F4FC2AF8C90D0013D941 /* GarminHeatMapHelper.swift in Sources */,
 				F520361E29DDB30000804BAC /* TimelLineViewTest.swift in Sources */,
 				F505DD1129BF1F0F00B0F35A /* TestViewController.swift in Sources */,
 				F520360229DA979D00804BAC /* Hike.swift in Sources */,
 				F505DCF729BDD30B00B0F35A /* ExtensionListViewController.swift in Sources */,
 				F505DCFC29BDD40C00B0F35A /* NormalInfoCell.swift in Sources */,
+				F55B8F332B491D3D0001E280 /* AboutMainViewController.swift in Sources */,
 				F520360629DA9A3800804BAC /* HikeView.swift in Sources */,
 				F520361F29DDB30000804BAC /* CanvasViewTest.swift in Sources */,
 				F520361329DAD10B00804BAC /* CustomPickerView.swift in Sources */,
 				F5754B4E2AF7241800F79A30 /* HeatMapTestViewController.swift in Sources */,
+				F579B4552B6B93C500F598F0 /* ClimbAnnotation.swift in Sources */,
 				F520360F29DAC1BD00804BAC /* SkewedOffsetView.swift in Sources */,
 				F563A14029BB6FEF00E7358F /* AppDelegate.swift in Sources */,
 				F520362229DDB30000804BAC /* MatchedGeometryEffectViewTest.swift in Sources */,
 				F563A14229BB6FEF00E7358F /* SceneDelegate.swift in Sources */,
+				F579B4572B70E23100F598F0 /* PolyLineOverlay.swift in Sources */,
 				F5030EA429C4B5B2003FF3B8 /* StateViewModelView.swift in Sources */,
+				F549F4F82AF8C8620013D941 /* GarminHeatMapRenderer.swift in Sources */,
+				F55B8F2E2B491BB80001E280 /* AboutMainView.swift in Sources */,
 				F520362029DDB30000804BAC /* MatrixDigitalRain.swift in Sources */,
 				F505DCEC29BDB56500B0F35A /* RootViewController.swift in Sources */,
 				F5D5AC1329CC471200BA9356 /* DateRelatedViewController.swift in Sources */,
@@ -642,11 +742,13 @@
 				F537420029E3E01200064386 /* ListDemo.swift in Sources */,
 				F520360A29DA9D7B00804BAC /* GraphCapsule.swift in Sources */,
 				F505DCFE29BDD4E900B0F35A /* Const.swift in Sources */,
+				F55B8F312B491CDD0001E280 /* SwiftUITestView.swift in Sources */,
 				F505DD0529BDDF3A00B0F35A /* ThemeManager.swift in Sources */,
 				F56237E32A1B497E00E1F729 /* APNSInfoList.swift in Sources */,
 				F520360429DA988200804BAC /* ModelData.swift in Sources */,
-				F5D693152A289C6D0046382C /* SwiftUITestView.swift in Sources */,
+				F55B8F352B4931F30001E280 /* EnvironmentDemo.swift in Sources */,
 				F520362129DDB30000804BAC /* SidesAnimationsTest.swift in Sources */,
+				F5A7C6662B54F41200158EFB /* AudioPromptsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,6 +890,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -849,6 +952,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -881,6 +985,10 @@
 				DEVELOPMENT_TEAM = 72ES32VZUA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyTestDemo/Support/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = bbb;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = aaa;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = aaa;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = aaa;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -915,6 +1023,10 @@
 				DEVELOPMENT_TEAM = 72ES32VZUA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyTestDemo/Support/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = bbb;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = aaa;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = aaa;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = aaa;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

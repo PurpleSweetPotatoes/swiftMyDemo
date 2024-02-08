@@ -9,7 +9,7 @@ target 'MyTestDemo' do
   # Pods for MyTestDemo
   pod 'SnapKit', '~> 5.0.1'
   pod 'SwiftyJSON', '~> 5.0.1'
-
+  pod 'GoogleMaps', '~> 8.4.0'
   # subModule
   pod 'BQSwiftKit', :path => 'submodules/SwiftCustomControl'
 end

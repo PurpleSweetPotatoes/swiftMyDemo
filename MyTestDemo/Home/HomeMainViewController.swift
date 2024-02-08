@@ -7,6 +7,7 @@
 //  
 
 import UIKit
+import CoreLocation
 
 enum HomeListType: CaseIterable {
     case testVC
@@ -15,6 +16,9 @@ enum HomeListType: CaseIterable {
     case extensionList
     case dateRelated
     case heatMap
+    case audioPrompts
+    case appleMapTest
+    case googleMapTest
 
     var dataSource: NormalInfoDataSource {
         switch self {
@@ -30,6 +34,12 @@ enum HomeListType: CaseIterable {
             return NormalInfoModel(title: "Date Related VC", content: "some date test & method")
         case .heatMap:
             return NormalInfoModel(title: "HeatMap Apple Map View", content: "custom apple heatMap")
+        case .audioPrompts:
+            return NormalInfoModel(title: "Audio Prompts VC", content: "play test")
+        case .appleMapTest:
+            return NormalInfoModel(title: "Apple Map View Test", content: "map test")
+        case .googleMapTest:
+            return NormalInfoModel(title: "Google Map View Test", content: "map test")
         }
     }
 
@@ -48,6 +58,12 @@ enum HomeListType: CaseIterable {
             targetVC = DateRelatedViewController()
         case .heatMap:
             targetVC = HeatMapTestViewController()
+        case .audioPrompts:
+            targetVC = AudioPromptsViewController()
+        case .appleMapTest:
+            targetVC = AppleMapTestViewController()
+        case .googleMapTest:
+            return GoogleMapViewController()
         }
         targetVC?.title = dataSource.title
         return targetVC ?? UIViewController()
@@ -58,6 +74,7 @@ class HomeMainViewController: UIViewController {
     private let tableView = UITableView(frame: .zero, style: .plain)
     private var dataList = HomeListType.allCases
     private var window: UIWindow?
+    private let locationManager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "\(tabBarName)(\(UIApplication.isDebug ? "Debug" : "Normal"))"
@@ -121,6 +138,18 @@ extension HomeMainViewController: TabBarInfoProtocol {
     }
 
     func testMethod() {
-        
+        let englishLocale = Locale(identifier: "ZH_HK")
+        if let english = (englishLocale as NSLocale).displayName(forKey: NSLocale.Key.countryCode, value: "HK") {
+            print("-=-=-=- english: \(english)")
+        }
+    }
+}
+
+extension HomeMainViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("\(locations)")
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error: \(error)")
     }
 }
