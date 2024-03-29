@@ -114,7 +114,23 @@ extension HomeMainViewController: UITableViewDataSource {
 extension HomeMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(dataList[indexPath.row].toViewController, animated: true)
+//        navigationController?.pushViewController(dataList[indexPath.row].toViewController, animated: true)
+
+        Task {
+            print("-=-=- start render")
+            let result = await withUnsafeContinuation { [weak self] continuation in
+                self?.startRender { str in
+                    continuation.resume(returning: str)
+                }
+            }
+            print("-=-=- \(result)")
+        }
+    }
+
+    func startRender(handle: @escaping (String) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+            handle("abc")
+        })
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -43,6 +43,3 @@ struct AboutMainView: View {
     }
 }
 
-#Preview {
-    AboutMainView()
-}
