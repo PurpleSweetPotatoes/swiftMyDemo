@@ -57,6 +57,7 @@ struct AudioPromptsLanguage: CustomStringConvertible {
 
 class AudioPromptsViewController: UIViewController {
     var voice: AVSpeechSynthesisVoice?
+    let synthesizer = AVSpeechSynthesizer()
     private var speechLanguage: String = AVSpeechSynthesisVoice.currentLanguageCode() {
         didSet {
             if let newVoice = AVSpeechSynthesisVoice(language: speechLanguage){
@@ -71,9 +72,25 @@ class AudioPromptsViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
         let languageList = AudioPromptsLanguage.retrieveAudioPromptsLanguages()
-//        zh-HK
+        let button = UIButton(type: .system)
+        button.setTitle("Play", for: .normal)
+        button.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
+        view.addSubview(button)
+        button.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.width.equalTo(100)
+            $0.height.equalTo(44)
+        }
+    }
+
+    @objc private func buttonClick() {
+        let language = "ja_jp"
+        handleAudioPromptLanguageChanged(language: language)
         print("currentLanguage: \(speechLanguage)")
-        handleAudioPromptLanguageChanged(language: "ZH_CT")
+        let text = "ラップ 一. 四 秒"
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = voice
+        synthesizer.speak(utterance)
     }
 
     private func handleAudioPromptLanguageChanged(language: String?) {

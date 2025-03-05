@@ -10,18 +10,42 @@ import UIKit
 import UserNotifications
 import BQSwiftKit
 import GoogleMaps
+import OSLog
+import Combine
+import CoreTelephony
+import SafariServices
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    let logger = Logger(subsystem: "AppDelegate", category: "start")
+    private var cancellables: Set<AnyCancellable> = []
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
+                    .receive(on: DispatchQueue.main)
+                    .sink { event in
+                        print("!!! publisher received event: didBecomeActiveNotification: \(event)")
+                    }
+                    .store(in: &cancellables)
         registerNotification()
+        BQLogger.startCrashIntercept()
+        
         BQLogger.log(UIApplication.isDebug ? "current environment is Debug" : "current environment is Release")
         application.registerForRemoteNotifications()
         UIViewController.startLifeCyclingLog()
         GMSServices.setAbnormalTerminationReportingEnabled(false)
-        GMSServices.setMetalRendererEnabled(false)
-        GMSServices.provideAPIKey("AIzaSyDpi2zD8sEwKqMhPSK2s_Qb1Cfm-X-Z3fs")
+//        GMSServices.provideAPIKey("CZzaSyDea2zD8sEwKqMhPSK2s_Qb1Ccd-X-Z3fs")
+        logger.log("-=-= log")
+        logger.warning("-=-= warning")
+        logger.info("-=-= info")
+        logger.notice("-=-= notice")
+        logger.debug("-=-= debug")
+        logger.trace("-=-= trace")
+        logger.error("-=-= error")
+        logger.critical("-=-= critical")
+        logger.fault("-=-= fault")
         testMethod()
         return true
     }
@@ -73,52 +97,43 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
 }
 
-import MapKit
-
-class ClimbPolyLine: NSObject, MKOverlay {
-    var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D()
-    var boundingMapRect: MKMapRect = MKMapRect()
-    var zPosition: Int
-    init(_ zPosition: Int) {
-        self.zPosition = zPosition
-    }
+public enum SecurityState: String {
+    case none
+    case jailBroken
+    case debugExecutable
+    case teamIDMismatch
+    case bundleIDMismatch
+    case insertLibrary
 }
 
-class NormalPolyLine: NSObject, MKOverlay {
-    var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D()
-    var boundingMapRect: MKMapRect = MKMapRect()
-    var zIndex: Int
-    init(_ zIndex: Int) {
-        self.zIndex = zIndex
-    }
+extension SecurityState: CustomStringConvertible {
+    public var description: String { rawValue }
 }
 
 extension AppDelegate {
     func testMethod() {
-        let array: [MKOverlay] = [
-            NormalPolyLine(5),
-            NormalPolyLine(1),
-            ClimbPolyLine(2),
-            ClimbPolyLine(1),
-            ClimbPolyLine(3),
-            NormalPolyLine(4),
-        ]
-        let climbPolylines = array.compactMap { $0 as? ClimbPolyLine}
-        let otherOverlays = array.filter { !($0 is ClimbPolyLine) }
-        let sortedClimbPolylines = climbPolylines.sorted {
-            $0.zPosition < $1.zPosition
+        AppSecurityChecker(expectData: AppInfoData(appName: "MyTestDemo", bundleID: "aa", whiteFrameworks: [""])).startCheck()
+    }
+
+    func getCarrierInfo() {
+        let networkInfo = CTTelephonyNetworkInfo()
+    }
+    
+    func getLibraries() {
+    }
+}
+
+extension UUID {
+    var data: Data {
+        withUnsafePointer(to: uuid) {
+            Data(bytes: $0, count: MemoryLayout.size(ofValue: uuid))
         }
-        let sortedOverlays: [MKOverlay] = sortedClimbPolylines + otherOverlays
-        print("-=-=- sorted: \(sortedOverlays)")
-        for index in 0..<array.count {
-            let oldOverly = array[index]
-            let newOverly = sortedOverlays[index]
-            if oldOverly.coordinate.latitude != newOverly.coordinate.latitude,
-               oldOverly.coordinate.longitude != newOverly.coordinate.longitude,
-               !MKMapRectEqualToRect(oldOverly.boundingMapRect, newOverly.boundingMapRect) {
-                print("不等 刷新")
-                return
-            }
+    }
+
+    init?(data: Data) {
+        guard data.count == MemoryLayout<uuid_t>.size else {
+            return nil
         }
+        self = data.withUnsafeBytes { $0.load(as: UUID.self) }
     }
 }

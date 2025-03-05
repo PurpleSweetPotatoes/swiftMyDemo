@@ -10,9 +10,16 @@ import MapKit
 
 class ClimbAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
-    var clusterId: String { Self.description() }
-    let image = UIImage(named: "mountain_icon")
-    var zIndex: Float = 0
+    var clusterId: String? { isCluster ? Self.description() : nil }
+    var image = UIImage(named: "mountain_icon")
+    var isCluster: Bool = false
+    var zIndex: Float = 0 {
+        didSet {
+            if zIndex >= 60 {
+                image = image?.fillColor(.red)
+            }
+        }
+    }
     init(coordinate: CLLocationCoordinate2D) {
         self.coordinate = coordinate
     }
@@ -25,6 +32,18 @@ class MKClusterAnnotationView: MKAnnotationView {
         static let labelWidth: CGFloat = 26
     }
     let label = UILabel()
+
+    override var annotation: MKAnnotation? {
+        willSet {
+            if let cluster = newValue as? MKClusterAnnotation {
+                if cluster.memberAnnotations.count < 3 {
+                    self.displayPriority = .defaultLow // Avoid clustering
+                } else {
+                    self.displayPriority = .defaultHigh // Cluster
+                }
+            }
+        }
+    }
 
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)

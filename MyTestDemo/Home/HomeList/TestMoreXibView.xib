@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,19 +15,29 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1T-D2-GaF">
-                    <rect key="frame" x="0.0" y="59" width="375" height="102"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="a1T-D2-GaF">
+                    <rect key="frame" x="112.66666666666669" y="93" width="150" height="34.333333333333343"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="Mjm-6O-MvE"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="xmm-90-4vK"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="aaa"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <real key="value" value="2.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="EFO-Fc-JkJ"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="EFO-Fc-JkJ" firstAttribute="trailing" secondItem="a1T-D2-GaF" secondAttribute="trailing" id="Jm7-U6-9Ke"/>
-                <constraint firstItem="a1T-D2-GaF" firstAttribute="leading" secondItem="EFO-Fc-JkJ" secondAttribute="leading" id="PSt-ZO-rrS"/>
-                <constraint firstItem="EFO-Fc-JkJ" firstAttribute="bottom" secondItem="a1T-D2-GaF" secondAttribute="bottom" id="bMH-T9-kjv"/>
-                <constraint firstItem="a1T-D2-GaF" firstAttribute="top" secondItem="EFO-Fc-JkJ" secondAttribute="top" id="dUg-b3-SA7"/>
+                <constraint firstItem="a1T-D2-GaF" firstAttribute="centerY" secondItem="EFO-Fc-JkJ" secondAttribute="centerY" id="i6B-UP-MV1"/>
+                <constraint firstItem="a1T-D2-GaF" firstAttribute="centerX" secondItem="EFO-Fc-JkJ" secondAttribute="centerX" id="ks8-9U-KGt"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

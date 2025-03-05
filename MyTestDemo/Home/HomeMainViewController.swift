@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreLocation
+import AVFAudio
+import OSLog
+import WidgetKit
 
 enum HomeListType: CaseIterable {
     case testVC
@@ -19,11 +22,14 @@ enum HomeListType: CaseIterable {
     case audioPrompts
     case appleMapTest
     case googleMapTest
+    case safariWebView
 
     var dataSource: NormalInfoDataSource {
         switch self {
         case .extensionList:
             return NormalInfoModel(title: "Extension List", content: "Custom extension properties or methods")
+        case .safariWebView:
+            return NormalInfoModel(title: "SafariWebView Test", content: "It's a security web view")
         case .webView:
             return NormalInfoModel(title: "WebView Test", content: "use for test web view")
         case .testVC:
@@ -48,6 +54,8 @@ enum HomeListType: CaseIterable {
         switch self {
         case .extensionList:
             targetVC = ExtensionListViewController()
+        case .safariWebView:
+            targetVC = SecurityWebViewController()
         case .webView:
             targetVC = BQWebViewController()
         case .testVC:
@@ -70,11 +78,12 @@ enum HomeListType: CaseIterable {
     }
 }
 
+
 class HomeMainViewController: UIViewController {
     private let tableView = UITableView(frame: .zero, style: .plain)
     private var dataList = HomeListType.allCases
     private var window: UIWindow?
-    private let locationManager = CLLocationManager()
+    let logger = Logger(subsystem: "HomeMainViewController", category: "home")
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "\(tabBarName)(\(UIApplication.isDebug ? "Debug" : "Normal"))"
@@ -82,7 +91,6 @@ class HomeMainViewController: UIViewController {
         setupUI()
         testMethod()
     }
-    
 }
 
 private extension HomeMainViewController {
@@ -113,6 +121,7 @@ extension HomeMainViewController: UITableViewDataSource {
 
 extension HomeMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        WidgetCenter.shared.reloadTimelines(ofKind: "IntentWidget")
         tableView.deselectRow(at: indexPath, animated: true)
         navigationController?.pushViewController(dataList[indexPath.row].toViewController, animated: true)
     }
@@ -138,18 +147,12 @@ extension HomeMainViewController: TabBarInfoProtocol {
     }
 
     func testMethod() {
-        let englishLocale = Locale(identifier: "ZH_HK")
-        if let english = (englishLocale as NSLocale).displayName(forKey: NSLocale.Key.countryCode, value: "HK") {
-            print("-=-=-=- english: \(english)")
+        let bcp47Codes = NSLocale.preferredLanguages.compactMap {
+            print("-=-= \($0)")
+            return AVSpeechSynthesisVoice(language: $0)
         }
-    }
-}
-
-extension HomeMainViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("\(locations)")
-    }
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("error: \(error)")
+        bcp47Codes.forEach {
+            print("-=-= \($0) -- \($0.language)")
+        }
     }
 }

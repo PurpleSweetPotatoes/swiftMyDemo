@@ -10,16 +10,168 @@ import UIKit
 import BQSwiftKit
 import Combine
 import SwiftUI
+import OSLog
+import SnapKit
 
 class TestViewController: UIViewController {
     var storage = Set<AnyCancellable>()
+    private var searchController: UISearchController?
+
     deinit {
         print("deinit")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        addMoreXib()
+        setupSearchController()
+        let searchBtn = UIButton(frame: CGRect(x: 20, y: 100, width: 100, height: 40))
+        searchBtn.setTitle("Search", for: .normal)
+        searchBtn.setTitleColor(.black, for: .normal)
+        searchBtn.addTarget(self, action: #selector(searchButtonPressed), for: .touchUpInside)
+        view.addSubview(searchBtn)
+
+        let nextBtn = UIButton(frame: CGRect(x: 20, y: 300, width: 100, height: 40))
+        nextBtn.setTitle("Next", for: .normal)
+        nextBtn.setTitleColor(.black, for: .normal)
+        nextBtn.addTarget(self, action: #selector(showNextVC), for: .touchUpInside)
+        view.addSubview(nextBtn)
+    }
+
+    @objc private func searchButtonPressed() {
+        guard let searchController = searchController,
+              !searchController.isActive else {
+            return
+        }
+        // Always update the context to the latest state.
+        searchController.searchBar.sizeToFit()
+
+        searchController.searchBar.showsCancelButton = false
+        searchController.searchBar.placeholder = "Search Key"
+        let cancelButton = UIButton(type: .custom)
+        cancelButton.setTitle("back", for: .normal)
+        cancelButton.setTitleColor(.black, for: .normal)
+        cancelButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        cancelButton.addTarget(self, action: #selector(cancelPressed), for: .touchUpInside)
+        let cancel = UIBarButtonItem(customView: cancelButton)
+//        let filterButton = UIButton(type: .custom)
+//        filterButton.setTitle("filter", for: .normal)
+//        filterButton.setTitleColor(.black, for: .normal)
+//        filterButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+//        filterButton.addTarget(self, action: #selector(filterPressed), for: .touchUpInside)
+//        let filter = UIBarButtonItem(customView: filterButton)
+        navigationItem.rightBarButtonItems = [cancel]
+
+        navigationItem.titleView = searchController.searchBar
+        // Present the view controller.
+        searchController.isActive = true
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        definesPresentationContext = true
+    }
+
+    @objc private func showNextVC() {
+        let vc = TestViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    @objc private func cancelPressed() {
+        let cancelButton = searchController?.searchBar.value(forKey: "cancelButton") as? UIButton
+        cancelButton?.sendActions(for: .touchUpInside)
+    }
+
+    @objc private func filterPressed() {
+        print("filterPressed")
+    }
+
+    private func setupSearchController() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.autocapitalizationType = .none
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        self.searchController = searchController
+        navigationItem.hidesBackButton = true
+//        navigationItem.leftBarButtonItem = UIBarButtonItem.backButton(target: self, action: #selector(backButtonAction))
+    }
+}
+
+extension TestViewController: UISearchControllerDelegate {
+    func didPresentSearchController(_ searchController: UISearchController) {
+        // In iOS 9 it appears that the search bar is not ready to become first responder once
+        // the presentation animation is finished.
+        // http://stackoverflow.com/questions/33386908/uisearchcontroller-not-becoming-first-responder-in-ios-9
+//        if searchController.searchBar.canBecomeFirstResponder {
+//            searchController.searchBar.becomeFirstResponder()
+//        } else {
+//            searchController.searchBar.perform(#selector(UIResponder.becomeFirstResponder), with: nil, afterDelay: 0.01)
+//        }
+        print("didPresentSearchController")
+    }
+
+    func willDismissSearchController(_ searchController: UISearchController) {
+        print("willDismissSearchController")
+    }
+}
+
+extension TestViewController: UISearchBarDelegate {
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("searchBarCancelButtonClicked")
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("searchBarCancel textDidChange")
+    }
+
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        // Show clear button
+        searchBar.setPositionAdjustment(.zero, for: .clear)
+        return true
+    }
+}
+
+extension TestViewController {
+    private func getAppLogs() throws -> [OSLogEntryLog] {
+        let logStore = try OSLogStore(scope: .currentProcessIdentifier)
+        let onHourAgo = logStore.position(date: Date().addingTimeInterval(-3600))
+        let allEntries = try logStore.getEntries(at: onHourAgo)
+
+        return allEntries
+            .compactMap { $0 as? OSLogEntryLog }
+    }
+}
+
+fileprivate extension OSLogEntryLog {
+    var info: String {
+        "\(level.rawValue) \(date) \(subsystem) - \(category): \(composedMessage)"
+    }
+}
+
+extension TestViewController: UITextViewDelegate {
+    private func addTextView() {
+        let textField = UITextView()
+        textField.backgroundColor = UIColor.cyan
+        textField.delegate = self
+        view.addSubview(textField)
+        textField.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.top.equalToSuperview().offset(100)
+            $0.height.equalTo(40)
+        }
+    }
+
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let allowedChars = CharacterSet.alphanumerics.union(CharacterSet.whitespaces).union(CharacterSet.punctuationCharacters).union(CharacterSet(charactersIn: "゛"))
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        print("-=-=- replacementText: \(text)")
+        print("-=-=- newText: \(newText)")
+        let filteredString = newText.components(separatedBy: allowedChars.inverted).joined()
+        print("-=-=- filteredString: \(filteredString)")
+        let myChars = CharacterSet(charactersIn: newText)
+        let bool = myChars.isSubset(of: allowedChars)
+        print("-=-=- bool: \(bool)")
+        return bool
     }
 }
 
@@ -409,15 +561,53 @@ private extension TestViewController {
 }
 
 private extension TestViewController {
+    private func buttonSetup(button: UIButton) {
+       let insets = NSDirectionalEdgeInsets(top: 6, leading: 8, bottom: 6, trailing: 8)
+       button.configuration?.contentInsets = insets
+       button.layer.cornerRadius = 2.5
+       button.clipsToBounds = true
+       button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.font = UIFont.dynamicFont(.caption)
+       button.titleLabel?.textAlignment = .center
+    }
+
     func addMoreXib() {
         if let firstView = TestMoreXibView.loadView(type: .first) {
-            firstView.frame = CGRect(x: 0, y: 100, width: view.sizeW, height: 100)
-            view.addSubview(firstView)
-        }
 
-        if let secondView = TestMoreXibView.loadView(type: .last) {
-            secondView.frame = CGRect(x: 0, y: 200, width: view.sizeW, height: 100)
-            view.addSubview(secondView)
+            let tableView = UITableView(frame: view.bounds)
+            view.addSubview(tableView)
+
+            firstView.frame = CGRect(x: 0, y: 100, width: view.sizeW, height: 100)
+            firstView.button.layer.borderColor = UIColor.gray.cgColor
+            firstView.button.layer.borderWidth = 1
+            buttonSetup(button: firstView.button)
+            firstView.button.addTarget(self, action: #selector(secondButtonClick(sender:)), for: .touchUpInside)
+            firstView.backgroundColor = .cyan
+            firstView.button.setTitle("sdfsdfsdf", for: .normal)
+            tableView.tableHeaderView = firstView
+        }
+    }
+
+    @objc func secondButtonClick(sender: UIButton) {
+        sender.setTitle("asdasdasbasjdb\nasjkdasdnas\nsdsad", for: .normal)
+    }
+}
+
+private extension TestViewController {
+    func linkTextDisplay() {
+        let topMessage = "การบันทึก ECG นี้ไม่แสดงสัญญาณของ AFib "
+        let linkInfo = "อ่านเพิ่มเติมเกี่ยวกับผลลัพธ์นี้"
+        print("linkInfo: \(linkInfo.count)")
+        let dynamicAttr = NSMutableAttributedString(string: topMessage)
+        dynamicAttr.append(NSAttributedString(string: linkInfo, attributes: [.foregroundColor: UIColor.blue]))
+        let dynamicLabel = UILabel()
+        dynamicLabel.attributedText = dynamicAttr
+        dynamicLabel.numberOfLines = 0
+        view.addSubview(dynamicLabel)
+        dynamicLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(300)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-16)
         }
     }
 }

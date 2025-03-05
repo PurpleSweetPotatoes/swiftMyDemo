@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 protocol NormalInfoDataSource {
     var title: String { get }
     var content: String { get }

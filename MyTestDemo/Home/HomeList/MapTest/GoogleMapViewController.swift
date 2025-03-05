@@ -23,13 +23,23 @@ class GoogleMapViewController: UIViewController {
     }
 
     @objc func addMark() {
-        self.marker?.map = nil
-        self.marker = nil
-        let marker = GMSMarker()
-        marker.position = mapView.camera.target
-        marker.title = "\(marker.position.latitude)\n \(marker.position.longitude)"
-        marker.map = mapView
-        self.marker = marker
+//        self.marker?.map = nil
+//        self.marker = nil
+//        let marker = GMSMarker()
+//        marker.position = mapView.camera.target
+//        marker.title = "\(marker.position.latitude)\n \(marker.position.longitude)"
+//        marker.map = mapView
+//        self.marker = marker
+        print("-=-=- zoomLevel: \(mapView.camera.zoom)")
+        print("-=-=- longdetal: \(mapView.projection.visibleRegion())")
+        mapView.animate(toBearing: CLLocationDirection(arc4random_uniform(360)))
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            print("-=-=- zoomLevel: \(self.mapView.camera.zoom)")
+            print("-=-=- longdetal: \(self.mapView.projection.visibleRegion())")
+        })
+    }
+
+    @objc func showMyLocation() {
     }
 
     @objc func switchMapType() {
@@ -52,7 +62,7 @@ private extension GoogleMapViewController {
     }
 
     func setupNavigation() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add mark", style: .plain, target: self, action: #selector(addMark))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add mark", style: .plain, target: self, action: #selector(showMyLocation))
     }
 
     func setupMapView() {
@@ -60,6 +70,7 @@ private extension GoogleMapViewController {
         mapView.insetsLayoutMarginsFromSafeArea = false
         mapView.mapType = mapType
         mapView.delegate = self
+        mapView.isMyLocationEnabled = true
         view.addSubview(mapView)
     }
 
@@ -89,5 +100,10 @@ private extension GoogleMapViewController {
 }
 
 extension GoogleMapViewController: GMSMapViewDelegate {
-
+    func mapViewSnapshotReady(_ mapView: GMSMapView) {
+        print("-=-=-= mapViewSnapshotReady")
+    }
+    func mapViewDidFinishTileRendering(_ mapView: GMSMapView) {
+        print("-=-=-= mapViewDidFinishTileRendering")
+    }
 }
