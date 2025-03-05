@@ -90,3 +90,5 @@ fastlane/test_output
 iOSInjectionProject/
 MyTestDemo.xcodeproj/xcshareddata
 node_modules
+submodules/.DS_Store
+.DS_Store

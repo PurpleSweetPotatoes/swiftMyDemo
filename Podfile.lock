@@ -10,7 +10,7 @@ PODS:
 
 DEPENDENCIES:
   - BQSwiftKit (from `submodules/SwiftCustomControl`)
-  - GoogleMaps (~> 8.4.0)
+  - GoogleMaps
   - SnapKit (~> 5.0.1)
   - SwiftyJSON (~> 5.0.1)
 
@@ -30,6 +30,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: f5e07c66bd17a6a52fee1e49814c5eed0db0cd33
+PODFILE CHECKSUM: 5418aa50fa7d32b4e9db46cfd6c01734656d1b32
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.16.2
